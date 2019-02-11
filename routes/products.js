@@ -25,4 +25,18 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+//Crear nuevo producto aquí 
+/*router.get("/new"){
+  render(product/new)
+}
+
+Guardar producto
+/products tipo post
+router.post("/", (....)) {
+  me guardo el producto en la db
+}*/
+
+
+
+
 module.exports = router;
