@@ -4,44 +4,36 @@
 // $ node bin/seeds.js
 
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const User = require("../models/User");
-
-const bcryptSalt = 10;
+const Product = require("../models/Product");
+const axios = require("axios");
 
 mongoose
-  .connect('mongodb://localhost/makeyoop', {useNewUrlParser: true})
+  .connect("mongodb://localhost/makeyoop", { useNewUrlParser: true })
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error("Error connecting to mongo", err);
   });
 
-let users = [
-  {
-    email: "alice@gmail.com",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
-  },
-  {
-    email: "bob@gmail.com",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
-  }
-]
+Product.collection.drop();
 
-User.deleteMany()
-.then(() => {
-  return User.create(users)
-})
-.then(usersCreated => {
-  console.log(`${usersCreated.length} users created with the following id:`);
-  console.log(usersCreated.map(u => u._id));
-})
-.then(() => {
-  // Close properly the connection to Mongoose
-  mongoose.disconnect()
-})
-.catch(err => {
-  mongoose.disconnect()
-  throw err
-})
+// const url = "http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=Natural&product_type=blush";
+const url = "http://makeup-api.herokuapp.com/api/v1/products.json"
+axios.get(url)
+  .then(response => {
+
+    Product.create(response.data)
+    .then(products=> {
+      console.log(`Created ${products.length} products`);
+      mongoose.disconnect();
+    }).catch(err => {
+      console.log(err);
+      mongoose.disconnect();
+    })
+  }).catch(err => {
+    console.log("The error has occurred", err);
+    mongoose.disconnect();
+  });
