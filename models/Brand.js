@@ -7,6 +7,7 @@ const brandSchema = new Schema({
   password: String,
   role: String,
   imgPath: String,
+  isBrand: {type: Boolean, default: true}
 }, {
   timestamps: {
     createdAt: 'created_at',
