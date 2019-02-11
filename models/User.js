@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
-  userName: String,
+  name: String,
   email: String,
   password: String,
   role: String,
   imgPath: String,
   occupation: {type: Boolean, enum: ["Professional", "For fun"]},
-  
+
 }, {
   timestamps: {
     createdAt: 'created_at',
