@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const userSchema = new Schema({
-  userName: String,
+const brandSchema = new Schema({
+  username: String,
   email: String,
   password: String,
   role: String,
   imgPath: String,
-  occupation: {type: Boolean, enum: ["Professional", "For fun"]},
-  
 }, {
   timestamps: {
     createdAt: 'created_at',
@@ -16,5 +14,5 @@ const userSchema = new Schema({
   }
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Brand = mongoose.model('Brand', brandSchema);
+module.exports = Brand;

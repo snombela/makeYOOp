@@ -1,6 +1,12 @@
 <h2>Signup</h2>
 
 <form action="/signup" method="POST" id="form-container">
+
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" placeholder="Name">
+
+  <br><br>
+
   <label for="email">Email</label>
   <input id="email" type="email" name="email" placeholder="Email">
 
@@ -8,7 +14,10 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+
+  <input type="hidden" name="role" value="{{role}}">
+  <br>  
+  
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
