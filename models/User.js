@@ -7,8 +7,7 @@ const userSchema = new Schema({
   password: String,
   role: String,
   imgPath: String,
-  occupation: {type: Boolean, enum: ["Professional", "For fun"]},
-
+  occupation: {type: Boolean, enum: ["Professional", "For fun"]}
 }, {
   timestamps: {
     createdAt: 'created_at',

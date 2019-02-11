@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const axios = require('axios');
 const striptags = require('striptags');
 const Product = require("../models/Product")
 
@@ -24,9 +23,6 @@ router.get("/:id", (req, res, next) => {
     .catch(err => {
       console.log("The error has occurred", err);
     });
-})
-
-
-
+});
 
 module.exports = router;
