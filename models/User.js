@@ -7,7 +7,7 @@ const userSchema = new Schema({
   password: String,
   role: String,
   imgPath: String,
-  occupation: {type: Boolean, enum: ["Professional", "For fun"]}
+  favorites: Array
 }, {
   timestamps: {
     createdAt: 'created_at',

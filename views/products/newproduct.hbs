@@ -1,0 +1,39 @@
+<form action="/products/new" method="post"  class="newProduct" enctype="multipart/form-data">
+
+  <label for="">Brand:</label>
+  <input required type="text" name="brand" value="ASTOR">
+
+  <label for="">Name:</label>
+  <input required type="text" name="name" value="peach">
+
+  <label for="">Price:</label>
+  <input required type="number" name="price" value="5">
+
+  <label for="photo">Image:</label>
+  <input required type="file" name="photo" value="">
+
+  <label for="">Description:</label>
+  <input required type="text" name="description" value="
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate earum odio fugiat illo dolor quod! Voluptatem commodi dolorum aliquam perspiciatis veniam nihil porro illo accusantium nobis est voluptate, consectetur aspernatur!">
+
+  <label for="">Category:</label>
+  <input required type="text" name="category" value="blush">
+
+  <label for="">Product type:</label>
+  <input required type="text" name="product_type" value="blush">
+
+  <label for="">Tags:</label>
+  <input required type="text" name="tag_list" value="vegan">
+
+  <label for="">Product color:</label>
+  <select>
+    {{#each colors.arrayProp}}
+      <option value='elem_1'>{{this.name}} {{this.hex}}</option>
+    {{!-- <input type="text" name="product_colors" value="naranja"> --}}
+    {{/each}}
+  </select>
+  
+ 
+
+  <button type="submit">ADD</button>
+</form>

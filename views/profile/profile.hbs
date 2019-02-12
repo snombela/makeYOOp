@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 red">
+      <img src="/images/user.png" alt="user">
+      <h2>{{this.name}}</h2>
+    </div>
+
+    <div class="col-md-8 blue">
+      {{#each user.favorites}}
+      <div class="container-fluid">
+        <div class="row">
+          <article class="col-md-8">
+          <img src="{{this.image_link}}">
+          <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
+          <p><a href="/products/favorite/remove/{{this._id}}">remove favorite</a></p>
+          <br>
+          </article>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
