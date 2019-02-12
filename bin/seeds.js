@@ -20,8 +20,8 @@ mongoose
 
 Product.collection.drop();
 
-//const url = "http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=Natural&product_type=blush";
-const url = "http://makeup-api.herokuapp.com/api/v1/products.json"
+const url = "http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=Natural&product_type=blush";
+//const url = "http://makeup-api.herokuapp.com/api/v1/products.json"
 axios.get(url)
   .then(response => {
 

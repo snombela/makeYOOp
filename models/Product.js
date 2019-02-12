@@ -14,7 +14,7 @@ const productSchema = new Schema({
   tag_list: [String],
   product_colors: Array,
   imgName: String,
-  imgPath: String
+  image_link: String
   
 }, {
   timestamps: {

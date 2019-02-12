@@ -7,6 +7,9 @@ body {
 
 a {
   color: #00B7FF;
+  &:hover{
+    color: pink;
+  }
   
 }
 
@@ -20,3 +23,4 @@ a {
   margin-top: 10px;
   background-color: lightblue;
 }
+
