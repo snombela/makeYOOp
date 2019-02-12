@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+{{!-- <input type="checkbox" class= "filters" name="brand" value="">BRANDS<br>
+<input type="checkbox" class= "filters" name="name" value="">NAME<br>
+<input type="checkbox" class= "filters" name="price" value="">PRICE<br>
+<input type="checkbox" class= "filters" name="category" value="">CATEGORY<br>
+<input type="checkbox" class= "filters" name="product_type" value="">PRODUCT TYPE<br>
+<input type="checkbox" class= "filters" name="tag_list" value="">TAGS<br>
+<input type="checkbox" class= "filters" name="product_colors" value="">COLORS<br> --}}
+
+
+
+<script>
+
+    names.forEach(){
+        html += `<input type="checkbox" class= "filters" name="${name.names}" value="">NAME<br>`
+
+    }
+
+
+var checkbox = document.querySelector("input[class=filters]");
+checkbox.addEventListener( 'change', function() {
+    if(this.checked) {
+        // Checkbox is checked.. nombre de los checkeados, clickes/seleccion meter todo en un array. llamo a axios y paso los nombres
+    } else {
+        // Checkbox is not checked..
+    }
+});
+
+</script>
+    
+</body>
+</html>

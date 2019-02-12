@@ -1,6 +1,26 @@
 <h1>Products</h1>
 
+brandssss
+
+<div id="brands"></div>
+
 {{#each products}}
 <a href="/products/{{this.id}}">{{this.name}}</a> 
 <br>   
 {{/each}}
+
+<script>
+    axios.get("http://localhost:3000/products/brands")
+        .then(brandsPayload => {
+            let brands = brandsPayload.data
+            const brandsDOMEl = document.querySelector("#brands")
+
+            brands.forEach(function (brand){
+                const newBrandFilterItem = document.createElement("li")
+                newBrandFilterItem.innerHTML = `<input type='checkbox'> ${brand}`
+                brandsDOMEl.appendChild(newBrandFilterItem)
+            })
+        })
+</script>
+
+
