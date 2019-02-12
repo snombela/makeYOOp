@@ -17,12 +17,12 @@ router.get("/new", (req, res, next) => {
   res.render("products/newproduct")
 })
 
-router.post("/new", (req, res, next) => {
+router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
   console.log('POST NEW')
-  const { brand, name, price, image_link, description, category, product_type, tag_list, product_colors, imgPath, imgName } = req.body;
+  const { brand, name, price, image_link, description, category, product_type, tag_list, product_colors} = req.body;
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
   const newProduct = new Product({brand, name, price, image_link, description, category, product_type, tag_list, product_colors, imgPath, imgName });
-  // const imgPath = req.file.url;
-  // const imgName = req.file.originalname;
   console.log(newProduct)
     newProduct.save()
     .then((product) => {
@@ -48,7 +48,7 @@ router.get("/:id", (req, res, next) => {
 });
 
 
-//uploadCloud.single('photo'), 
+//
 
 module.exports = router;
 

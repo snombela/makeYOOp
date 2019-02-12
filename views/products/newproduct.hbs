@@ -1,4 +1,4 @@
-<form action="/products/new" method="post"  class="newProduct">
+<form action="/products/new" method="post"  class="newProduct" enctype="multipart/form-data">
 
   <label for="">Brand:</label>
   <input type="text" name="brand" value="ASTOR">
@@ -9,8 +9,8 @@
   <label for="">Price:</label>
   <input type="number" name="price" value="5">
 
-  {{!-- <label for="photo">Image:</label>
-  <input type="file" name="photo" value=""> --}}
+  <label for="photo">Image:</label>
+  <input type="file" name="photo" value="">
 
   <label for="">Description:</label>
   <input type="text" name="description" value="

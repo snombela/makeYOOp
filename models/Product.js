@@ -13,6 +13,8 @@ const productSchema = new Schema({
   product_type: String,
   tag_list: [String],
   product_colors: Array,
+  imgName: String,
+  imgPath: String
   
 }, {
   timestamps: {
@@ -24,5 +26,3 @@ const productSchema = new Schema({
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;
 
-// imgName: String,
-// imgPath: String
