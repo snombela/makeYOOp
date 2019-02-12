@@ -2,13 +2,16 @@
 
 {{#each products}}
 <a href="/products/{{this.id}}">{{this.name}}</a> 
+{{#if ../user}}
  {{#if this.isFavorite}}
   <a href="/products/favorite/remove/{{this.id}}">remove favorite</a>
   {{else}}
   <a href="/products/favorite/add/{{this.id}}">add favorite</a>
   {{/if}}
+{{/if}}
 <br>   
 {{/each}}
+
 
 
  

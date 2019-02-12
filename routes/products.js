@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
           return product;
         })
       }
-      res.render("products/products", {"products": products});
+      res.render("products/products", {"products": products, "user": req.user});
     })
     .catch(err => {
       console.log("The error has occurred", err);
@@ -43,15 +43,6 @@ router.get("/new", (req, res, next) => {
         })
       }
     })
-    // products.forEach(item => {
-    //   if(item.tag_list.length > 0){
-    //     item.tag_list.forEach(tagArray => {
-    //       tagArray.tag_list.push(tag)
-    //       console.log(tag)
-    //     })
-    //   }
-    // })
-
     console.log(colorObj)
     res.render("products/newproduct", {"colors":colorObj})
   })
@@ -62,7 +53,18 @@ router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
   const { brand, name, price, description, category, product_type, tag_list, product_colors} = req.body;
   const image_link = req.file.url;
   const imgName = req.file.originalname;
-  const newProduct = new Product({brand, name, price, image_link, description, category, product_type, tag_list, product_colors, image_link, imgName });
+  const newProduct = new Product({
+    brand, 
+    name, 
+    price, 
+    image_link, 
+    description, 
+    category, 
+    product_type, 
+    tag_list: tag_list.split(','), 
+    product_colors, 
+    image_link, 
+    imgName });
   console.log(newProduct)
     newProduct.save()
     .then((product) => {

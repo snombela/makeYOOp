@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
+* {
+  box-sizing: border-box; }
+
 body {
   padding: 50px;
   font-family: 'Poppins', sans-serif; }
@@ -8,6 +11,15 @@ a {
   a:hover {
     color: pink; }
 
+.red {
+  background-color: red;
+  border-radius: 20px; }
+
+.blue {
+  background-color: blue;
+  border-radius: 20px;
+  display: flex; }
+
 .newProduct {
   display: flex;
   flex-flow: column;
@@ -16,5 +28,19 @@ a {
 .newProduct button {
   margin-top: 10px;
   background-color: lightblue; }
+
+.profile-container {
+  display: flex;
+  flex-flow: row;
+  background-color: grey;
+  border-radius: 10px; }
+
+.profile-image {
+  width: 70%;
+  border-radius: 50%; }
+
+.prueba {
+  display: flex;
+  flex-flow: row; }
 
 /*# sourceMappingURL=style.css.map */
