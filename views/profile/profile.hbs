@@ -1,3 +1,9 @@
+{{#if user.isBrand}}
+<h1>My upload products</h1>
+{{else}}
+<h1>My Favorites products</h1>
+{{/if}}
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 red">
@@ -6,13 +12,15 @@
     </div>
 
     <div class="col-md-8 blue">
-      {{#each user.favorites}}
+      {{#each products}}
       <div class="container-fluid">
         <div class="row">
           <article class="col-md-8">
           <img src="{{this.image_link}}">
           <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
+          {{#unless ../user.isBrand}}
           <p><a href="/products/favorite/remove/{{this._id}}">remove favorite</a></p>
+          {{/unless}}
           <br>
           </article>
         </div>

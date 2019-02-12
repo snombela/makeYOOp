@@ -24,7 +24,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/new", (req, res, next) => {
+router.get("/new", isBrand, (req, res, next) => {
   let colorObj={
     arrayProp:[]
   }
@@ -50,11 +50,11 @@ router.get("/new", (req, res, next) => {
 
 router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
   console.log('POST NEW')
-  const { brand, name, price, description, category, product_type, tag_list, product_colors} = req.body;
+  const { name, price, description, category, product_type, tag_list, product_colors} = req.body;
   const image_link = req.file.url;
   const imgName = req.file.originalname;
   const newProduct = new Product({
-    brand, 
+    brand: req.user.name, 
     name, 
     price, 
     image_link, 
@@ -123,6 +123,14 @@ router.get("/:id", (req, res, next) => {
       console.log("The error has occurred", err);
     });
 });
+
+function isBrand(req, res, next) {
+  if (req.isAuthenticated() && req.user.isBrand) {
+    return next();
+  } else {
+    res.redirect('/login')
+  }
+}
 
 module.exports = router;
 

@@ -7,6 +7,7 @@ const userSchema = new Schema({
   password: String,
   role: String,
   imgPath: String,
+  isBrand: {type: Boolean, default: false},
   favorites: Array
 }, {
   timestamps: {
