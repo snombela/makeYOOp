@@ -12,7 +12,8 @@ const productSchema = new Schema({
   category: String,
   product_type: String,
   tag_list: [String],
-  product_colors: Array
+  product_colors: Array,
+  
 }, {
   timestamps: {
     createdAt: 'created_at',
@@ -23,3 +24,5 @@ const productSchema = new Schema({
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;
 
+// imgName: String,
+// imgPath: String

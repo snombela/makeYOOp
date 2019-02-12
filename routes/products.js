@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const striptags = require('striptags');
 const Product = require("../models/Product")
+const uploadCloud = require('../config/cloudinary.js');
 
 router.get("/", (req, res, next) => {
     Product.find({})
@@ -12,6 +13,26 @@ router.get("/", (req, res, next) => {
       console.log("The error has occurred", err);
     });
 });
+router.get("/new", (req, res, next) => {
+  res.render("products/newproduct")
+})
+
+router.post("/new", (req, res, next) => {
+  console.log('POST NEW')
+  const { brand, name, image, description, category, productType, tag, productColors, imgPath, imgName } = req.body;
+  const newProduct = new Product({brand, name, image, description, category, productType, tag, productColors, imgPath, imgName });
+  // const imgPath = req.file.url;
+  // const imgName = req.file.originalname;
+  console.log(newProduct)
+  //   newProduct.save()
+  //   .then((product) => {
+  //     //console.log(product)
+  //     res.redirect("/products")
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  // })
+})
 
 router.get("/:id", (req, res, next) => {
   const id = req.params.id;
@@ -25,18 +46,8 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-//Crear nuevo producto aquí 
-/*router.get("/new"){
-  render(product/new)
-}
 
-Guardar producto
-/products tipo post
-router.post("/", (....)) {
-  me guardo el producto en la db
-}*/
-
-
-
+//uploadCloud.single('photo'), 
 
 module.exports = router;
+

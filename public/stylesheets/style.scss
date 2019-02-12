@@ -7,4 +7,16 @@ body {
 
 a {
   color: #00B7FF;
+  
+}
+
+.newProduct {
+  display: flex;
+  flex-flow: column;
+  width: 300px;
+}
+
+.newProduct button {
+  margin-top: 10px;
+  background-color: lightblue;
 }
