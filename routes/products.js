@@ -13,8 +13,30 @@ router.get("/", (req, res, next) => {
       console.log("The error has occurred", err);
     });
 });
+
 router.get("/new", (req, res, next) => {
-  res.render("products/newproduct")
+  let colorObj={
+    arrayProp:[]
+  }
+  Product.find({})
+  .then(products => {
+    products.forEach(item => {
+      if(item.product_colors.length>0){
+        item.product_colors.forEach(colorsArray=>{
+          //console.log(colorsArray.colour_name,colorsArray.hex_value)
+         // colorObj.name.push(colorsArray.colour_name)
+         // colorObj.hex.push(colorsArray.hex_value)
+          actualObj={
+            name:colorsArray.colour_name,
+            hex:colorsArray.hex_value
+          }
+          colorObj.arrayProp.push(actualObj);
+        })
+      }
+    })
+    console.log(colorObj)
+    res.render("products/newproduct", {"colors":colorObj})
+  })
 })
 
 router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
