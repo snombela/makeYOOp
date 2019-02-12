@@ -1,0 +1,8 @@
+<h1>My favorites products</h1>
+
+{{#each products}}
+<a href="/products/{{this._id}}">{{this.name}}</a> 
+<a href="/products/favorite/remove/{{this._id}}">remove favorite</a>
+
+<br>   
+{{/each}}

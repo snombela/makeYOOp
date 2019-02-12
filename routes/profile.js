@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/profile", ensureAuthenticated, (req, res) => {
-    res.send("profile");
+    res.render("profile/profile", {"products": req.user.favorites});
 });
 
 function ensureAuthenticated(req, res, next) {

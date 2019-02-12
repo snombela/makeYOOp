@@ -2,11 +2,21 @@ const express = require("express");
 const router = express.Router();
 const striptags = require('striptags');
 const Product = require("../models/Product")
+const User = require("../models/User")
 const uploadCloud = require('../config/cloudinary.js');
 
 router.get("/", (req, res, next) => {
-    Product.find({})
+  Product.find({})
     .then(products => {
+      if (req.user != undefined){
+        products = products.map(product => {
+          const isFavorite = req.user.favorites.filter(favorite => {
+            return favorite._id.equals(product._id) //comparamos un id con otro para ver si está en favoritos.
+          }).length > 0;
+          product.isFavorite = isFavorite; 
+          return product;
+        })
+      }
       res.render("products/products", {"products": products});
     })
     .catch(err => {
@@ -62,6 +72,42 @@ router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
     .catch((error) => {
       console.log(error)
   })
+})
+
+router.get("/favorite/add/:id", (req, res, next) => {
+  const id = req.params.id;
+  Product.findById(id)
+    .then(product => {
+      User.update( {_id: req.user._id}, 
+      {$push: {favorites: product} })
+      .then(() => {
+        res.redirect(req.headers.referer) //actualiza la url de donde vienes.
+      })
+      .catch(err => {
+        console.log("The error has occurred", err);
+      });
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+})
+
+router.get("/favorite/remove/:id", (req, res, next) => {
+  const id = req.params.id;
+  Product.findById(id)
+    .then(product => {
+      User.update( {_id: req.user._id}, 
+      {$pull: {favorites: product} })
+      .then(() => {
+        res.redirect(req.headers.referer) //actualiza la url de donde vienes.
+      })
+      .catch(err => {
+        console.log("The error has occurred", err);
+      });
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
 })
 
 router.get("/:id", (req, res, next) => {
