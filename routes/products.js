@@ -19,20 +19,21 @@ router.get("/new", (req, res, next) => {
 
 router.post("/new", (req, res, next) => {
   console.log('POST NEW')
-  const { brand, name, image, description, category, productType, tag, productColors, imgPath, imgName } = req.body;
-  const newProduct = new Product({brand, name, image, description, category, productType, tag, productColors, imgPath, imgName });
+  const { brand, name, price, image_link, description, category, product_type, tag_list, product_colors, imgPath, imgName } = req.body;
+  const newProduct = new Product({brand, name, price, image_link, description, category, product_type, tag_list, product_colors, imgPath, imgName });
   // const imgPath = req.file.url;
   // const imgName = req.file.originalname;
   console.log(newProduct)
-  //   newProduct.save()
-  //   .then((product) => {
-  //     //console.log(product)
-  //     res.redirect("/products")
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  // })
+    newProduct.save()
+    .then((product) => {
+      //console.log(product)
+      res.redirect("/products")
+    })
+    .catch((error) => {
+      console.log(error)
+  })
 })
+
 
 router.get("/:id", (req, res, next) => {
   const id = req.params.id;
