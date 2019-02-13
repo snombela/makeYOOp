@@ -31,7 +31,7 @@ pricesss
 
 
 <script>
-
+var counter = 0
 
     function searchPrice() {
 
@@ -49,6 +49,8 @@ pricesss
                         const newBrandFilterItem = document.createElement("li")
                         newBrandFilterItem.innerHTML = `<input type='checkbox'> ${product.price}`
                         brandsDOMEl.appendChild(newBrandFilterItem)
+
+                    
                     })
                 })
         }
