@@ -29,26 +29,14 @@ function ensureAuthenticated(req, res, next) {
 router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
   const imgPath = req.file.url;
   //actualizamos la imagen del usuari
-  User.findByIdAndUpdate({_id: req.user._id}, { $set: { imgPath: imgPath }},{new:true})
+  User.findOneAndUpdate({_id: req.user._id}, { $set: { imgPath: imgPath }},{new:true})
   .then((updateUser) => {
-    console.log(user)
-    //cuando ya esta actualizada
-    //pedir el resto de datos que necesitamos para la vista
-    if (req.user.isBrand) {
-      Product.find( {brand: req.user.name} )
-      .then(products => {
-        res.render("profile/profile", {"products": products, "user": updateUser});  
-      }).catch(err => {
-        console.log("The error has occurred", err);
-      });
-    } else {
-     // console.log(req.user)
-      res.render("profile/profile", {"products": req.user.favorites, "user": updateUser});
-    }
+    res.redirect("/profile");  
   })
   .catch(error => {
     console.log(error);
   })
+  
 });
 
 
