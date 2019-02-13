@@ -11,7 +11,11 @@ body{
 .box-container-2 {
   background-color: white;
   border-radius: 20px;
-  
+  h4{
+    padding: 20px;
+    font-size: 1.2em;
+    color: #D1B5AF;
+  }
 }
 
 .profile-img {
@@ -44,6 +48,7 @@ body{
   border: 2px solid #D1B5AF;
   color: #D1B5AF;
   background-color: white;
+  width: 150px;
   padding: 8px 10px;
   border-radius: 8px;
   font-size: 15px;
@@ -60,4 +65,6 @@ body{
   top: 0;
   opacity: 0;
 }
+
+
 

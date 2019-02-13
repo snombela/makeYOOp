@@ -16,6 +16,10 @@ body {
 .box-container-2 {
   background-color: white;
   border-radius: 20px; }
+  .box-container-2 h4 {
+    padding: 20px;
+    font-size: 1.2em;
+    color: #D1B5AF; }
 
 .profile-img {
   width: 260px;
@@ -42,6 +46,7 @@ body {
   border: 2px solid #D1B5AF;
   color: #D1B5AF;
   background-color: white;
+  width: 150px;
   padding: 8px 10px;
   border-radius: 8px;
   font-size: 15px;
@@ -58,6 +63,33 @@ body {
 
 .favorite-img {
   width: 20px; }
+
+.products-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row; }
+
+.item-container {
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  font-size: 14px;
+  margin: 25px; }
+
+.item-container h5 {
+  margin-top: 10px;
+  font-size: 14px; }
+
+.item-container img {
+  width: 200px;
+  height: 150px;
+  object-fit: fill; }
+
+.item-container .favorite-img {
+  width: 20px;
+  height: 20px; }
 
 * {
   box-sizing: border-box; }

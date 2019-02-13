@@ -24,22 +24,20 @@
     </div>
 
     <div class="col-md-8 box-container-2">
-      <div class="blue">
-      {{#each products}}
-      <div class="container-fluid">
-        <div class="row">
-          <article class="col-md-8">
-          <img src="{{this.image_link}}">
-          <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
-          {{#unless ../user.isBrand}}
-          <p><a href="/products/favorite/remove/{{this._id}}">remove favorite</a></p>
-          {{/unless}}
-          <br>
-          </article>
-        </div>
+      <div class="products-container">
+        {{#each products}}
+          <div class="item-container">
+            <img src="{{this.image_link}}">
+            <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
+            {{#unless ../user.isBrand}}
+              <div class=".favorite-img-container">
+                <a href="/products/favorite/remove/{{this._id}}"><img class="favorite-img" src="/images/estrella.png"></a>
+              </div>
+            {{/unless}}
+            <br>
+          </div>
+        {{/each}}
       </div>
-      {{/each}}
-    </div>
     </div>
   </div>
 </div>
