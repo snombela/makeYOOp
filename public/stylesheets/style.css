@@ -16,7 +16,7 @@ body {
   .box-container-1 h2 {
     padding-top: 30px;
     font-size: 2em;
-    color: black; }
+    color: #F19D94; }
 
 .box-container-2 {
   background-color: white;
@@ -24,7 +24,7 @@ body {
   .box-container-2 h4 {
     padding: 20px;
     font-size: 1.2em;
-    color: black; }
+    color: #F19D94; }
 
 .profile-img {
   width: 260px;
@@ -32,7 +32,7 @@ body {
   border-radius: 50%;
   border: #E4E3DF solid 1px;
   margin-top: 30px;
-  object-fit: fill; }
+  object-fit: cover; }
 
 .center-img {
   align-items: center; }
@@ -48,8 +48,8 @@ body {
   overflow: hidden; }
 
 .btn {
-  border: 2px solid black;
-  color: black;
+  border: 2px solid #F19D94;
+  color: #F19D94;
   background-color: white;
   width: 150px;
   padding: 8px 10px;
@@ -69,12 +69,21 @@ body {
 .favorite-img {
   width: 20px; }
 
+.product-page-container {
+  margin: 30px 30px 30px 0px;
+  padding: 0 50px; }
+
 .products-container {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
   justify-content: space-around;
-  flex-direction: row; }
+  align-content: flex-start;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 20px; }
 
 .item-container {
   display: flex;
@@ -90,7 +99,7 @@ body {
 .item-container img {
   width: 200px;
   height: 150px;
-  object-fit: fill; }
+  object-fit: cover; }
 
 .item-container .favorite-img {
   width: 20px;
@@ -100,7 +109,7 @@ nav {
   margin: 10px; }
 
 .nav-link {
-  color: black; }
+  color: #F19D94; }
   .nav-link:hover {
     color: #7E7F82; }
 
@@ -115,7 +124,7 @@ nav {
 
 #form-container h2 {
   font-size: 3em;
-  color: black;
+  color: #F19D94;
   padding: 10px; }
 
 #form-container label {
@@ -138,8 +147,8 @@ nav {
   margin-bottom: 20px; }
 
 #form-container button {
-  background: black;
-  border: 1px solid black;
+  background: #F19D94;
+  border: 1px solid #F19D94;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -152,8 +161,32 @@ nav {
   width: 100%; }
   #form-container button:hover {
     background: #fff;
-    color: black;
+    color: #F19D94;
     transition: .3s ease background; }
+
+.carousel {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto; }
+
+.carousel img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover; }
+
+.index-container {
+  color: #F19D94;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 20px; }
+
+.index-container h1 {
+  padding: 30px 20px; }
+
+.index-container h4 {
+  padding: 10px 0px 30px 0px; }
 
 * {
   box-sizing: border-box; }
@@ -164,7 +197,7 @@ body {
   font-family: 'Poppins', sans-serif; }
 
 a {
-  color: black; }
+  color: #F19D94; }
   a:hover {
     color: #7E7F82; }
 

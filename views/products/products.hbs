@@ -1,33 +1,51 @@
-<h1>Products</h1>
+<div class="container-fluid product-page-container">
+  <div class="row">
+  <div class="filter-container col-3">
 
-<button id="buttonBrands">BRANDS</button>
-<ul id="brands"></ul>
+    <button id="buttonBrands">BRANDS</button>
+    <ul id="brands"></ul>
 
-<button id="buttonNames">NAMES</button>
-<ul id="names"></ul>
+    <button id="buttonNames">NAMES</button>
+    <ul id="names"></ul>
 
-<button id="buttonCategories">CAT</button>
-<ul id="categories"></ul>
+    <button id="buttonCategories">CAT</button>
+    <ul id="categories"></ul>
 
-<button id="buttonProduct_types">PDTS</button>
-<ul id="product_types"></ul>
+    <button id="buttonProduct_types">PDTS</button>
+    <ul id="product_types"></ul>
 
-<button id="buttonColors">COLORS</button>
-<ul id="colors"></ul>
+    <button id="buttonColors">COLORS</button>
+    <ul id="colors"></ul>
 
-product_colorsssss
-<div id="products_colors"></div>
+    product_colorsssss
+    <div id="products_colors"></div>
 
-pricesss
-<input type="text" id="myInput" onkeyup="searchPrice()" placeholder="Search by price..">
-<div id="price"></div>
+    pricesss
+    <input type="text" id="myInput" onkeyup="searchPrice()" placeholder="Search by price..">
+    <div id="price"></div>
 
+  </div>
 
-{{!-- {{#each products}}
-<a href="/products/{{this.id}}">{{this.name}}</a>
-<br>
-{{/each}}
- --}}
+  <div class="products-container col-9">
+    {{#each products}}
+    <div class="item-container">
+      <img src="{{this.image_link}}">
+      <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
+
+      {{#unless ../user.isBrand}}
+      <div class=".favorite-img-container">
+        {{#if this.isFavorite}}
+        <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png" class="favorite-img"></a>
+        {{else}}
+        <a href="/products/favorite/add/{{this.id}}"><img src="/images/star-01.png" class="favorite-img"></a>
+        {{/if}}
+      </div>
+      {{/unless}}
+    </div>
+    {{/each}}
+  </div>
+</div>
+</div>
 
 
 <script>
@@ -178,22 +196,3 @@ pricesss
       })
     })
 </script>
-
-<div class="products-container">
-  {{#each products}}
-  <div class="item-container">
-    <img src="{{this.image_link}}">
-    <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
-
-    {{#unless ../user.isBrand}}
-    <div class=".favorite-img-container">
-      {{#if this.isFavorite}}
-      <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png" class="favorite-img"></a>
-      {{else}}
-      <a href="/products/favorite/add/{{this.id}}"><img src="/images/star-01.png" class="favorite-img"></a>
-      {{/if}}
-    </div>
-    {{/unless}}
-  </div>
-  {{/each}}
-</div>
