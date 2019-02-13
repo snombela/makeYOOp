@@ -1,0 +1,43 @@
+{{#if user.isBrand}}
+<h1>My upload products</h1>
+{{else}}
+<h1>My Favorites products</h1>
+{{/if}}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box-container-1">
+        <form action="/profile" method="post" enctype="multipart/form-data">
+        <img src="{{user.imgPath}}" alt="user image" class="profile-img">
+        <div class="buttons">
+        <div class="upload-btn-wrapper">
+        <button class="btn">Upload a file</button>
+        <input type="file" name="photo">
+        </div>
+        <button class="btn" type="submit">Enviar</button>
+        </div>
+        </form>
+        <h2>{{user.name}}</h2>
+
+      </div>
+    </div>
+
+    <div class="col-md-8 box-container-2">
+      <div class="products-container">
+        {{#each products}}
+          <div class="item-container">
+            <img src="{{this.image_link}}">
+            <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
+            {{#unless ../user.isBrand}}
+              <div class=".favorite-img-container">
+                <a href="/products/favorite/remove/{{this._id}}"><img class="favorite-img" src="/images/estrella.png"></a>
+              </div>
+            {{/unless}}
+            <br>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

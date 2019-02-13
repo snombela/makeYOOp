@@ -1,16 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const striptags = require("striptags");
-const Product = require("../models/Product");
+const striptags = require('striptags');
+const Product = require("../models/Product")
+const User = require("../models/User")
+const uploadCloud = require('../config/cloudinary.js');
 
 router.get("/", (req, res, next) => {
-    Product.find({})
+  Product.find({})
     .then(products => {
-      //Aqui tenemos un JSON con todos los datos de todos los productos
-      //llamamos a funcion --> var misfiltro=getFilters(products) --> nos va a devolver un objeto con los
-      //datos a pintar en los filtros
-
-      res.render("products/products", {"products": products});
+      if (req.user != undefined){
+        products = products.map(product => {
+          const isFavorite = req.user.favorites.filter(favorite => {
+            return favorite._id.equals(product._id) //comparamos un id con otro para ver si está en favoritos.
+          }).length > 0;
+          product.isFavorite = isFavorite; 
+          return product;
+        })
+      }
+      res.render("products/products", {"products": products, "user": req.user});
     })
     .catch(err => {
       console.log("The error has occurred", err);
@@ -125,11 +132,79 @@ router.get("/products_colors", (req, res, next) => {
       }
 
       res.json(products_colors.filter(onlyUnique));
+    });
+  })
+
+router.get("/new", isBrand, (req, res, next) => {
+  let colorObj={
+    arrayProp:[]
+  }
+
+  let tag = []
+  Product.find({})
+  .then(products => {
+    products.forEach(item => {
+      if(item.product_colors.length > 0){
+        item.product_colors.forEach(colorsArray=>{
+          actualObj={
+            name:colorsArray.colour_name,
+            hex:colorsArray.hex_value
+          }
+          colorObj.arrayProp.push(actualObj);
+        })
+      }
+    })
+    console.log(colorObj)
+    res.render("products/newproduct", {"colors":colorObj})
+  })
+ })
+
+router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
+  console.log('POST NEW')
+  const { name, price, description, category, product_type, tag_list, product_colors} = req.body;
+  const image_link = req.file.url;
+  const imgName = req.file.originalname;
+  const newProduct = new Product({
+    brand: req.user.name, 
+    name, 
+    price, 
+    image_link, 
+    description, 
+    category, 
+    product_type, 
+    tag_list: tag_list.split(','), 
+    product_colors, 
+    image_link, 
+    imgName });
+  console.log(newProduct)
+    newProduct.save()
+    .then((product) => {
+      res.redirect("/products")
+    })
+    .catch((error) => {
+      console.log(error)
+  })
+})
+
+router.get("/favorite/add/:id", (req, res, next) => {
+  const id = req.params.id;
+  Product.findById(id)
+    .then(product => {
+      User.update( {_id: req.user._id}, 
+      {$push: {favorites: product} })
+      .then(() => {
+        res.redirect(req.headers.referer) //actualiza la url de donde vienes.
+      })
+      .catch(err => {
+        console.log("The error has occurred", err);
+      });
     })
     .catch(err => {
       console.log("The error has occurred", err);
     });
 });
+
+
 router.get("/prices", (req, res, next) => {
   Product.find({})
     .then(products => {
@@ -144,6 +219,21 @@ router.get("/prices", (req, res, next) => {
       }
 
       res.json(prices.filter(onlyUnique));
+})
+});
+
+router.get("/favorite/remove/:id", (req, res, next) => {
+  const id = req.params.id;
+  Product.findById(id)
+    .then(product => {
+      User.update( {_id: req.user._id}, 
+      {$pull: {favorites: product} })
+      .then(() => {
+        res.redirect(req.headers.referer) //actualiza la url de donde vienes.
+      })
+      .catch(err => {
+        console.log("The error has occurred", err);
+      });
     })
     .catch(err => {
       console.log("The error has occurred", err);
@@ -157,77 +247,27 @@ router.get("/productsByPrice/:price", (req, res, next) => {
   Product.find()
     .then(products => {
       res.json(products.filter(product => product.price <= req.params.price && product.price !== null && product.price !== 0));
+})
+});
+
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  Product.findById(id)
+    .then(product => {
+      product.description = striptags(product.description) //Quitar etiquetas html a la descripción
+      res.render("products/product-detail", {"product": product});
     })
     .catch(err => {
       console.log("The error has occurred", err);
     });
 });
 
-//Crear nuevo producto aquí
-/*router.get("/new"){
-  render(product/new)
+function isBrand(req, res, next) {
+  if (req.isAuthenticated() && req.user.isBrand) {
+    return next();
+  } else {
+    res.redirect('/login')
+  }
 }
-
-Guardar producto
-/products tipo post
-router.post("/", (....)) {
-  me guardo el producto en la db
-}*/
-
-/*function getfilters(producstos) 
- var color=[];
- var name =[];
- foreach()=>{
-   push
- }
- quitas repetidos
- return filter={
-   color:color,
-   name:name
- }
-*/
-
-// function getFilters(products){
-//   var names = [];
-//   var names = [];
-//   var prices = [];
-//   var categories = [];
-//   var product_types = [];
-//   var tags_list = [];
-//   var products_colors = [];
-
-// products.forEach(product => {
-//   brands.push(product.brand)
-//   });
-//   var uniq_brands = brands.filter(function(brand, index, brands) {
-//   return brands.indexOf(brand) === index;
-// })
-
-// products.forEach(product => {
-//   names.push(product.name)
-// });
-// var uniq_names = names.filter(function(name, index, names) {
-// return names.indexOf(name) === index;
-// })
-
-// products.forEach(product => {
-//   prices.push(product.price)
-// });
-
-// products.forEach(product => {
-//   categories.push(product.product_type)
-// });
-// var uniq_categories = categories.filter(function(category, index, categories ) {
-// return categories.indexOf(category) === index;
-// })
-
-// products.forEach(product => {
-//   categories.push(product.category)
-// });
-// var uniq_categories = categories.filter(function(category, index, categories ) {
-// return categories.indexOf(category) === index;
-// })
-
-// }
 
 module.exports = router;

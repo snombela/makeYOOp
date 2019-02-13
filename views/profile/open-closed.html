@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="b1">Open / Close</button>
+    <ul id="menu">
+      <li class="item item-1">hola</li>
+      <li class="item item-2">hola</li>
+      <li class="item item-3">hola</li>
+      <li class="item item-4">hola</li>
+      <li class="item item-5">hola</li>
+    </ul>
+
+    <script>
+      function switchBehaviour(buttonID, menuID) {
+        var counter = 0;
+
+        document.querySelector(buttonID).onclick = function() {
+          counter++;
+
+          if (counter % 2 === 0) {
+            document.querySelector(menuID).style.display = "block";
+          } else {
+            document.querySelector(menuID).style.display = "none";
+          }
+        };
+      }
+
+      switchBehaviour("#b1", "#menu")
+    </script>
+  </body>
+</html>

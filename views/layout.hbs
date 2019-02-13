@@ -7,18 +7,47 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <nav>
     <a href="/">Home</a>
     <a href="/login">Login</a>
+    <a href="/signup">SignUp</a>
     <a href="/logout">Logout</a>
-    <a id="userSignup" href="/signup/user">User</a>
-    <a id="brandSignup" href="/signup/brand">Brand</a>
     <a href="/products">Products</a>
     <a href="/profile">Profile</a>
+    <a href="/products/new">Add new product</a>
   </nav>
+  
+  {{!-- <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">SignUp</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Logout</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Products</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Add new product</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul> --}}
 
   {{{body}}}
 

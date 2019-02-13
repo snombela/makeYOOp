@@ -6,8 +6,9 @@ const userSchema = new Schema({
   email: String,
   password: String,
   role: String,
-  imgPath: String,
-  occupation: {type: Boolean, enum: ["Professional", "For fun"]}
+  imgPath: {type: String, default: "https://res.cloudinary.com/dasjwsmzb/image/upload/v1550057973/folder-name/user.png"},
+  isBrand: {type: Boolean, default: false},
+  favorites: Array
 }, {
   timestamps: {
     createdAt: 'created_at',

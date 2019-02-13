@@ -180,3 +180,21 @@ var counter = 0
 
 
 </script>
+<div class="products-container">
+  {{#each products}}
+    <div class="item-container">
+      <img src="{{this.image_link}}">
+      <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
+    
+      {{#unless ../user.isBrand}}
+        <div class=".favorite-img-container">
+          {{#if this.isFavorite}}
+            <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png" class="favorite-img"></a>
+          {{else}}
+            <a href="/products/favorite/add/{{this.id}}"><img src="/images/star-01.png" class="favorite-img"></a>
+          {{/if}}
+        </div>
+      {{/unless}}
+    </div>
+  {{/each}}
+</div>

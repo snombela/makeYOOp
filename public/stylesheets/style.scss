@@ -1,4 +1,17 @@
+/* color
+grey: #7E7F82
+darkpintk: #D1B5AF
+pink: #F5E3E0
+lightgrey:#E4E3DF
+greyblue: #D1D2D4 */
+
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import 'profile.scss';
+@import 'products.scss';
+
+*{
+  box-sizing: border-box;
+}
 
 body {
   padding: 50px;
@@ -7,4 +20,34 @@ body {
 
 a {
   color: #00B7FF;
+  &:hover{
+    color: pink;
+  }
+  
+}
+
+
+
+.newProduct {
+  display: flex;
+  flex-flow: column;
+  width: 300px;
+}
+
+.newProduct button {
+  margin-top: 10px;
+  background-color: lightblue;
+}
+
+.profile-container {
+  display: flex;
+  flex-flow: row;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+
+.prueba{
+  display: flex;
+  flex-flow: row;
 }

@@ -12,7 +12,9 @@ const productSchema = new Schema({
   category: String,
   product_type: String,
   tag_list: [String],
-  product_colors: Array
+  product_colors: Array,
+  imgName: String,
+  
 }, {
   timestamps: {
     createdAt: 'created_at',
