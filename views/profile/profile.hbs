@@ -6,18 +6,21 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 red">
+    <div class="col-md-4">
+      <div class="red">
+        <form action="/profile" method="post" enctype="multipart/form-data">
+        <img src="{{user.imgPath}}" alt="user image">
+        <input type="file" name="photo">
+        <button type="submit">Enviar</button>
+        </form>
 
-      <form action="/profile" method="post" enctype="multipart/form-data">
-      <img src="{{user.imgPath}}" alt="user image">
-      <input type="file" name="photo">
-      <button type="submit">Enviar</button>
-      </form>
+        <h2>{{user.name}}</h2>
 
-      <h2>{{user.name}}</h2>
+      </div>
     </div>
 
-    <div class="col-md-8 blue">
+    <div class="col-md-7 blue">
+      <div class="blue">
       {{#each products}}
       <div class="container-fluid">
         <div class="row">
@@ -32,6 +35,7 @@
         </div>
       </div>
       {{/each}}
+    </div>
     </div>
   </div>
 </div>

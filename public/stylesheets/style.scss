@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import 'test.scss';
+
 *{
   box-sizing: border-box;
 }
@@ -24,7 +27,7 @@ a {
 .blue {
   background-color: blue;
   border-radius: 20px;
-  display: flex;
+ 
 }
 
 .newProduct {
