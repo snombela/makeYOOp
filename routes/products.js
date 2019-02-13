@@ -149,6 +149,20 @@ router.get("/prices", (req, res, next) => {
       console.log("The error has occurred", err);
     });
 });
+
+
+router.get("/productsByPrice/:price", (req, res, next) => {
+  console.log(req.params.price)
+  //Cambio
+  Product.find()
+    .then(products => {
+      res.json(products.filter(product => product.price <= req.params.price && product.price !== null && product.price !== 0));
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
+
 //Crear nuevo producto aquí
 /*router.get("/new"){
   render(product/new)
