@@ -49,6 +49,106 @@ router.get("/brands", (req, res, next) => {
     });
 });
 
+
+router.get("/names", (req, res, next) => {
+  Product.find({})
+    .then(products => {
+      var names = []
+      
+      products.forEach(function(product) {
+        return names.push(product.name)
+      });
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index && value !== null;
+      }
+
+      res.json(names.filter(onlyUnique));
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
+
+
+router.get("/categories", (req, res, next) => {
+  Product.find({})
+    .then(products => {
+      var categories = []
+      
+      products.forEach(function(product) {
+        return categories.push(product.category)
+      });
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index && value !== null;
+      }
+
+      res.json(categories.filter(onlyUnique));
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
+
+router.get("/product_types", (req, res, next) => {
+  Product.find({})
+    .then(products => {
+      var product_types = []
+      
+      products.forEach(function(product) {
+        return product_types.push(product.product_type)
+      });
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index && value !== null;
+      }
+
+      res.json(product_types.filter(onlyUnique));
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
+
+router.get("/products_colors", (req, res, next) => {
+  Product.find({})
+    .then(products => {
+      var products_colors = []
+      
+      products.forEach(function(product) {
+        return products_colors.push(product.product_colors)
+      });
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index && value !== null;
+      }
+
+      res.json(products_colors.filter(onlyUnique));
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
+router.get("/prices", (req, res, next) => {
+  Product.find({})
+    .then(products => {
+      var prices = []
+      
+      products.forEach(function(product) {
+        return prices.push(product.price)
+      });
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index && value !== null;
+      }
+
+      res.json(prices.filter(onlyUnique));
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
 //Crear nuevo producto aquí
 /*router.get("/new"){
   render(product/new)
@@ -74,7 +174,7 @@ router.post("/", (....)) {
 */
 
 // function getFilters(products){
-//   var brands = [];
+//   var names = [];
 //   var names = [];
 //   var prices = [];
 //   var categories = [];
@@ -101,7 +201,7 @@ router.post("/", (....)) {
 // });
 
 // products.forEach(product => {
-//   categories.push(product.category)
+//   categories.push(product.product_type)
 // });
 // var uniq_categories = categories.filter(function(category, index, categories ) {
 // return categories.indexOf(category) === index;
