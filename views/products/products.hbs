@@ -1,23 +1,26 @@
 <h1>Products</h1>
 
-brandssss
+<button id="buttonBrands">BRANDS</button>
+<ul id="brands"></ul>
 
-<div id="brands"></div>
+<button id="buttonNames">NAMES</button>
+<ul id="names"></ul>
 
-namesssss
-<div id="names"></div>
+<button id="buttonCategories">CAT</button>
+<ul id="categories"></ul>
 
-categoriesss
-<div id="categories"></div>
+<button id="buttonProduct_types">PDTS</button>
+<ul id="product_types"></ul>
 
-product_typessss
-<div id="product_types"></div>
+<button id="buttonColors">COLORS</button>
+<ul id="colors"></ul>
 
-product_colorsssss
-<div id="products_colors"></div>
-
-pricesss
-<div id="prices"></div>
+<p>
+  <label for="amount">Price range:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+ 
+<div id="slider-range"></div>
 
 {{#each products}}
 <a href="/products/{{this.id}}">{{this.name}}</a>
@@ -25,17 +28,27 @@ pricesss
 {{/each}}
 
 <script>
-    axios.get("http://localhost:3000/products/brands")
+    var counter = 0
+     axios.get("http://localhost:3000/products/brands")
         .then(brandsPayload => {
             let brands = brandsPayload.data
             const brandsDOMEl = document.querySelector("#brands")
 
-            brands.forEach(function (brand) {
-                const newBrandFilterItem = document.createElement("li")
-                newBrandFilterItem.innerHTML = `<input type='checkbox'> ${brand}`
-                brandsDOMEl.appendChild(newBrandFilterItem)
+            brands.forEach(function(brand) {
+                const newbrandFilterItem = document.createElement("li")
+                newbrandFilterItem.innerHTML = `<input type='checkbox'> ${brand}`
+                brandsDOMEl.appendChild(newbrandFilterItem)
             })
+            document.querySelector("#buttonBrands").onclick = function () {
+                        counter++;
+                        if (counter % 2 === 0) {
+                            brandsDOMEl.style.display = "block";
+                        } else {
+                            brandsDOMEl.style.display = "none";
+                        }
+                    };
         })
+    
 
     axios.get("http://localhost:3000/products/names")
         .then(namesPayload => {
@@ -47,6 +60,14 @@ pricesss
                 newNameFilterItem.innerHTML = `<input type='checkbox'> ${name}`
                 namesDOMEl.appendChild(newNameFilterItem)
             })
+            document.querySelector("#buttonNames").onclick = function () {
+                        counter++;
+                        if (counter % 2 === 0) {
+                            namesDOMEl.style.display = "block";
+                        } else {
+                            namesDOMEl.style.display = "none";
+                        }
+                    };
         })
 
     axios.get("http://localhost:3000/products/categories")
@@ -59,6 +80,14 @@ pricesss
                 newcategoryFilterItem.innerHTML = `<input type='checkbox'> ${category}`
                 categoriesDOMEl.appendChild(newcategoryFilterItem)
             })
+            document.querySelector("#buttonCategories").onclick = function () {
+                        counter++;
+                        if (counter % 2 === 0) {
+                            categoriesDOMEl.style.display = "block";
+                        } else {
+                            categoriesDOMEl.style.display = "none";
+                        }
+                    };
         })
     axios.get("http://localhost:3000/products/product_types")
         .then(product_typesPayload => {
@@ -70,33 +99,40 @@ pricesss
                 newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${product_type}`
                 product_typesDOMEl.appendChild(newproduct_typeFilterItem)
             })
+
+             document.querySelector("#buttonProduct_types").onclick = function () {
+                        counter++;
+                        if (counter % 2 === 0) {
+                            product_typesDOMEl.style.display = "block";
+                        } else {
+                            product_typesDOMEl.style.display = "none";
+                        }
+                    };
         })
 
     axios.get("http://localhost:3000/products/products_colors")
         .then(products_colorsPayload => {
             let products_colors = products_colorsPayload.data
-            const products_colorsDOMEl = document.querySelector("#products_colors")
+            const products_colorsDOMEl = document.querySelector("#colors")
+            console.log(products_colors)
             products_colors.forEach(function (product_colors) {
-                console.log(product_colors)
+               
                 product_colors.forEach(function (object_hex) {
-                    console.log(object_hex.hex_value)
+            
                     const newproduct_typeFilterItem = document.createElement("li")
                     newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${object_hex.hex_value}`
                     products_colorsDOMEl.appendChild(newproduct_typeFilterItem)
                 })
 
             })
+            document.querySelector("#buttonColors").onclick = function () {
+                        counter++;
+                        if (counter % 2 === 0) {
+                            products_colorsDOMEl.style.display = "block";
+                        } else {
+                            products_colorsDOMEl.style.display = "none";
+                        }
+                    };
         })
 
-    axios.get("http://localhost:3000/products/prices")
-        .then(pricesPayload => {
-            let prices = pricesPayload.data
-            const pricesDOMEl = document.querySelector("#prices")
-
-            prices.forEach(function (price) {
-                const newproduct_typeFilterItem = document.createElement("li")
-                newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${price}`
-                pricesDOMEl.appendChild(newproduct_typeFilterItem)
-            })
-        })
 </script>
