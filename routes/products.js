@@ -153,6 +153,7 @@ router.get("/prices", (req, res, next) => {
 
 router.get("/productsByPrice/:price", (req, res, next) => {
   console.log(req.params.price)
+  //Cambio
   Product.find()
     .then(products => {
       res.json(products.filter(product => product.price <= req.params.price && product.price !== null && product.price !== 0));
