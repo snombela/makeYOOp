@@ -8,13 +8,15 @@ greyblue: #D1D2D4 */
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import 'profile.scss';
 @import 'products.scss';
+@import 'nav.scss';
 
 *{
   box-sizing: border-box;
 }
 
 body {
-  padding: 50px;
+  padding: 10px;
+  margin: 0;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -25,7 +27,6 @@ a {
   }
   
 }
-
 
 
 .newProduct {

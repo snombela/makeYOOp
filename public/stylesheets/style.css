@@ -91,11 +91,20 @@ body {
   width: 20px;
   height: 20px; }
 
+nav {
+  margin: 10px; }
+
+.nav-link {
+  color: #D1B5AF; }
+  .nav-link:hover {
+    color: #7E7F82; }
+
 * {
   box-sizing: border-box; }
 
 body {
-  padding: 50px;
+  padding: 10px;
+  margin: 0;
   font-family: 'Poppins', sans-serif; }
 
 a {
