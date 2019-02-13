@@ -3,7 +3,8 @@ grey: #7E7F82
 darkpintk: #D1B5AF
 pink: #F5E3E0
 lightgrey:#E4E3DF
-greyblue: #D1D2D4 */
+greyblue: #D1D2D4 
+rosa:#F19D94 */
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 body {
   background-color: #F6F6F6; }
@@ -15,7 +16,7 @@ body {
   .box-container-1 h2 {
     padding-top: 30px;
     font-size: 2em;
-    color: #7E7F82; }
+    color: black; }
 
 .box-container-2 {
   background-color: white;
@@ -23,7 +24,7 @@ body {
   .box-container-2 h4 {
     padding: 20px;
     font-size: 1.2em;
-    color: #D1B5AF; }
+    color: black; }
 
 .profile-img {
   width: 260px;
@@ -47,8 +48,8 @@ body {
   overflow: hidden; }
 
 .btn {
-  border: 2px solid #D1B5AF;
-  color: #D1B5AF;
+  border: 2px solid black;
+  color: black;
   background-color: white;
   width: 150px;
   padding: 8px 10px;
@@ -99,7 +100,7 @@ nav {
   margin: 10px; }
 
 .nav-link {
-  color: #D1B5AF; }
+  color: black; }
   .nav-link:hover {
     color: #7E7F82; }
 
@@ -114,7 +115,7 @@ nav {
 
 #form-container h2 {
   font-size: 3em;
-  color: #F5E3E0;
+  color: black;
   padding: 10px; }
 
 #form-container label {
@@ -137,8 +138,8 @@ nav {
   margin-bottom: 20px; }
 
 #form-container button {
-  background: #F5E3E0;
-  border: 1px solid #F5E3E0;
+  background: black;
+  border: 1px solid black;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -151,7 +152,7 @@ nav {
   width: 100%; }
   #form-container button:hover {
     background: #fff;
-    color: #F5E3E0;
+    color: black;
     transition: .3s ease background; }
 
 * {
@@ -163,9 +164,9 @@ body {
   font-family: 'Poppins', sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: black; }
   a:hover {
-    color: pink; }
+    color: #7E7F82; }
 
 .newProduct {
   display: flex;

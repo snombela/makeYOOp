@@ -3,7 +3,10 @@ grey: #7E7F82
 darkpintk: #D1B5AF
 pink: #F5E3E0
 lightgrey:#E4E3DF
-greyblue: #D1D2D4 */
+greyblue: #D1D2D4 
+rosa:#F19D94 */
+
+$primary-color: black;
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import 'profile.scss';
@@ -22,9 +25,9 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: $primary-color;
   &:hover{
-    color: pink;
+    color: #7E7F82;
   }
   
 }

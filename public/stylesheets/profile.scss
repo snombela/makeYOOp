@@ -10,7 +10,7 @@ body{
     padding-top: 30px;
 
     font-size: 2em;
-    color: #7E7F82;
+    color: $primary-color;
   }
 }
 
@@ -20,7 +20,7 @@ body{
   h4{
     padding: 20px;
     font-size: 1.2em;
-    color: #D1B5AF;
+    color: $primary-color;
   }
 }
 
@@ -51,8 +51,8 @@ body{
 }
 
 .btn {
-  border: 2px solid #D1B5AF;
-  color: #D1B5AF;
+  border: 2px solid $primary-color;
+  color: $primary-color;
   background-color: white;
   width: 150px;
   padding: 8px 10px;
