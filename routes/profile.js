@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/Product")
+const Product = require("../models/Product");
 
 router.get("/profile", ensureAuthenticated, (req, res) => {
   if (req.user.isBrand) {
@@ -22,5 +22,6 @@ function ensureAuthenticated(req, res, next) {
     res.redirect('/login')
   }
 }
+
 
 module.exports = router;

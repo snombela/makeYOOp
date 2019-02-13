@@ -46,7 +46,7 @@ router.get("/new", isBrand, (req, res, next) => {
     console.log(colorObj)
     res.render("products/newproduct", {"colors":colorObj})
   })
-})
+ })
 
 router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
   console.log('POST NEW')
