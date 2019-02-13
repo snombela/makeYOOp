@@ -26,29 +26,35 @@
     <a class="nav-link active" href="/">Home</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="Products">Products</a>
+  </li>
+  {{#unless user}}
+  <li class="nav-item">
     <a class="nav-link" href="/login">Login</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/signup">SignUp</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/logout">Logout</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="Products">Products</a>
-  </li>
+  {{else}}
   <li class="nav-item">
     <a class="nav-link" href="/profile">Profile</a>
   </li>
+    {{#if user.isBrand}}
+    <li class="nav-item">
+      <a class="nav-link" href="/products/new">Add new product</a>
+    </li>
+    {{/if}}
   <li class="nav-item">
-    <a class="nav-link" href="/products/new">Add new product</a>
+    <a class="nav-link" href="/logout">Logout</a>
   </li>
+  {{/unless}}
 
   <li class="nav-item">
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
   </li>
 </ul>
 </nav>
+
 
   {{{body}}}
 

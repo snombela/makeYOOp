@@ -8,12 +8,12 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
   if (req.user.isBrand) {
     Product.find( {brand: req.user.name} )
     .then(products => {
-      res.render("profile/profile", {"products": products, "user": req.user});  
+      res.render("profile/profile", {"products": products});  
     }).catch(err => {
       console.log("The error has occurred", err);
     });
   } else {
-    res.render("profile/profile", {"products": req.user.favorites, "user": req.user});
+    res.render("profile/profile", {"products": req.user.favorites});
     
   }
 });

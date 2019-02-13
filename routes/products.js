@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
           return product;
         })
       }
-      res.render("products/products", {"products": products, "user": req.user});
+      res.render("products/products", {"products": products});
     })
     .catch(err => {
       console.log("The error has occurred", err);
