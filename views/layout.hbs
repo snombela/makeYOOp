@@ -7,11 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  <link rel="stylesheet" href="/stylesheets/style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav>
+  {{!-- <nav>
     <a href="/">Home</a>
     <a href="/login">Login</a>
     <a href="/signup">SignUp</a>
@@ -19,35 +21,42 @@
     <a href="/products">Products</a>
     <a href="/profile">Profile</a>
     <a href="/products/new">Add new product</a>
-  </nav>
-  
-  {{!-- <ul class="nav justify-content-end">
+  </nav> --}}
+  <nav>
+  <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Home</a>
+    <a class="nav-link active" href="/">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Login</a>
+    <a class="nav-link" href="Products">Products</a>
+  </li>
+  {{#unless user}}
+  <li class="nav-item">
+    <a class="nav-link" href="/login">Login</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">SignUp</a>
+    <a class="nav-link" href="/signup">SignUp</a>
   </li>
+  {{else}}
   <li class="nav-item">
-    <a class="nav-link" href="#">Logout</a>
+    <a class="nav-link" href="/profile">Profile</a>
   </li>
+    {{#if user.isBrand}}
+    <li class="nav-item">
+      <a class="nav-link" href="/products/new">Add new product</a>
+    </li>
+    {{/if}}
   <li class="nav-item">
-    <a class="nav-link" href="#">Products</a>
+    <a class="nav-link" href="/logout">Logout</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Profile</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Add new product</a>
-  </li>
+  {{/unless}}
 
   <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
   </li>
-</ul> --}}
+</ul>
+</nav>
+
 
   {{{body}}}
 

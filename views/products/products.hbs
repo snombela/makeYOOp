@@ -1,200 +1,198 @@
-<h1>Products</h1>
+<div class="container-fluid product-page-container">
+  <div class="row">
+  <div class="filter-container col-3">
 
-<button id="buttonBrands">BRANDS</button>
-<ul id="brands"></ul>
+    <button id="buttonBrands">BRANDS</button>
+    <ul id="brands"></ul>
 
-<button id="buttonNames">NAMES</button>
-<ul id="names"></ul>
+    <button id="buttonNames">NAMES</button>
+    <ul id="names"></ul>
 
-<button id="buttonCategories">CAT</button>
-<ul id="categories"></ul>
+    <button id="buttonCategories">CAT</button>
+    <ul id="categories"></ul>
 
-<button id="buttonProduct_types">PDTS</button>
-<ul id="product_types"></ul>
+    <button id="buttonProduct_types">PDTS</button>
+    <ul id="product_types"></ul>
 
-<button id="buttonColors">COLORS</button>
-<ul id="colors"></ul>
+    <button id="buttonColors">COLORS</button>
+    <ul id="colors"></ul>
 
-product_colorsssss
-<div id="products_colors"></div>
+    product_colorsssss
+    <div id="products_colors"></div>
 
-pricesss
-<input type="text" id="myInput" onkeyup="searchPrice()" placeholder="Search by price..">
-<div id="price"></div>
+    pricesss
+    <input type="text" id="myInput" onkeyup="searchPrice()" placeholder="Search by price..">
+    <div id="price"></div>
 
+  </div>
 
-{{#each products}}
-<a href="/products/{{this.id}}">{{this.name}}</a>
-<br>
-{{/each}}
-
-
-
-<script>
-var counter = 0
-
-    function searchPrice() {
-
-        let price = document.getElementById("myInput").value
-
-        if (document.getElementById("myInput").value.length === 0) {
-            document.querySelector("#price").innerHTML = ""
-        } else {
-            axios.get(`http://localhost:3000/products/productsByPrice/${price}`)
-                .then(productsByPrice => {
-
-                    const brandsDOMEl = document.querySelector("#price")
-
-                    productsByPrice.data.forEach(function (product) {
-                        const newBrandFilterItem = document.createElement("li")
-                        newBrandFilterItem.innerHTML = `<input type='checkbox'> ${product.price}`
-                        brandsDOMEl.appendChild(newBrandFilterItem)
-
-                    
-                    })
-                })
-        }
-
-
-    }
-
-    axios.get("http://localhost:3000/products/brands")
-
-        .then(brandsPayload => {
-            let brands = brandsPayload.data
-            const brandsDOMEl = document.querySelector("#brands")
-
-            brands.forEach(function(brand) {
-                const newbrandFilterItem = document.createElement("li")
-                newbrandFilterItem.innerHTML = `<input type='checkbox'> ${brand}`
-                brandsDOMEl.appendChild(newbrandFilterItem)
-            })
-            document.querySelector("#buttonBrands").onclick = function () {
-                        counter++;
-                        if (counter % 2 === 0) {
-                            brandsDOMEl.style.display = "block";
-                        } else {
-                            brandsDOMEl.style.display = "none";
-                        }
-                    };
-        })
-    
-
-    axios.get("http://localhost:3000/products/names")
-        .then(namesPayload => {
-            let names = namesPayload.data
-            const namesDOMEl = document.querySelector("#names")
-
-            names.forEach(function (name) {
-                const newNameFilterItem = document.createElement("li")
-                newNameFilterItem.innerHTML = `<input type='checkbox'> ${name}`
-                namesDOMEl.appendChild(newNameFilterItem)
-            })
-            document.querySelector("#buttonNames").onclick = function () {
-                        counter++;
-                        if (counter % 2 === 0) {
-                            namesDOMEl.style.display = "block";
-                        } else {
-                            namesDOMEl.style.display = "none";
-                        }
-                    };
-        })
-
-    axios.get("http://localhost:3000/products/categories")
-        .then(categoriesPayload => {
-            let categories = categoriesPayload.data
-            const categoriesDOMEl = document.querySelector("#categories")
-
-            categories.forEach(function (category) {
-                const newcategoryFilterItem = document.createElement("li")
-                newcategoryFilterItem.innerHTML = `<input type='checkbox'> ${category}`
-                categoriesDOMEl.appendChild(newcategoryFilterItem)
-            })
-            document.querySelector("#buttonCategories").onclick = function () {
-                        counter++;
-                        if (counter % 2 === 0) {
-                            categoriesDOMEl.style.display = "block";
-                        } else {
-                            categoriesDOMEl.style.display = "none";
-                        }
-                    };
-        })
-
-    axios.get("http://localhost:3000/products/product_types")
-        .then(product_typesPayload => {
-            let product_types = product_typesPayload.data
-            const product_typesDOMEl = document.querySelector("#product_types")
-
-            product_types.forEach(function (product_type) {
-                const newproduct_typeFilterItem = document.createElement("li")
-                newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${product_type}`
-                product_typesDOMEl.appendChild(newproduct_typeFilterItem)
-            })
-
-             document.querySelector("#buttonProduct_types").onclick = function () {
-                        counter++;
-                        if (counter % 2 === 0) {
-                            product_typesDOMEl.style.display = "block";
-                        } else {
-                            product_typesDOMEl.style.display = "none";
-                        }
-                    };
-        })
-
-    axios.get("http://localhost:3000/products/products_colors")
-        .then(products_colorsPayload => {
-            let products_colors = products_colorsPayload.data
-            const products_colorsDOMEl = document.querySelector("#colors")
-            console.log(products_colors)
-            products_colors.forEach(function (product_colors) {
-               
-                product_colors.forEach(function (object_hex) {
-            
-                    const newproduct_typeFilterItem = document.createElement("li")
-                    newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${object_hex.hex_value}`
-                    products_colorsDOMEl.appendChild(newproduct_typeFilterItem)
-                })
-
-            })
-            document.querySelector("#buttonColors").onclick = function () {
-                        counter++;
-                        if (counter % 2 === 0) {
-                            products_colorsDOMEl.style.display = "block";
-                        } else {
-                            products_colorsDOMEl.style.display = "none";
-                        }
-                    };
-        })
-
-    axios.get("http://localhost:3000/products/prices")
-        .then(pricesPayload => {
-            let prices = pricesPayload.data
-            const pricesDOMEl = document.querySelector("#prices")
-
-            prices.forEach(function (price) {
-                const newproduct_typeFilterItem = document.createElement("li")
-                newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${price}`
-                pricesDOMEl.appendChild(newproduct_typeFilterItem)
-            })
-        })
-
-
-</script>
-<div class="products-container">
-  {{#each products}}
+  <div class="products-container col-9">
+    {{#each products}}
     <div class="item-container">
       <img src="{{this.image_link}}">
       <h5><a href="/products/{{this._id}}">{{this.name}}</a></h5>
-    
+
       {{#unless ../user.isBrand}}
-        <div class=".favorite-img-container">
-          {{#if this.isFavorite}}
-            <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png" class="favorite-img"></a>
-          {{else}}
-            <a href="/products/favorite/add/{{this.id}}"><img src="/images/star-01.png" class="favorite-img"></a>
-          {{/if}}
-        </div>
+      <div class=".favorite-img-container">
+        {{#if this.isFavorite}}
+        <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png" class="favorite-img"></a>
+        {{else}}
+        <a href="/products/favorite/add/{{this.id}}"><img src="/images/star-01.png" class="favorite-img"></a>
+        {{/if}}
+      </div>
       {{/unless}}
     </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
+</div>
+
+
+<script>
+  var counter = 0
+
+  function searchPrice() {
+
+    let price = document.getElementById("myInput").value
+
+    if (document.getElementById("myInput").value.length === 0) {
+      document.querySelector("#price").innerHTML = ""
+    } else {
+      axios.get(`http://localhost:3000/products/productsByPrice/${price}`)
+        .then(productsByPrice => {
+
+          const brandsDOMEl = document.querySelector("#price")
+
+          productsByPrice.data.forEach(function (product) {
+            const newBrandFilterItem = document.createElement("li")
+            newBrandFilterItem.innerHTML = `<input type='checkbox'> ${product.price}`
+            brandsDOMEl.appendChild(newBrandFilterItem)
+
+
+          })
+        })
+    }
+
+
+  }
+
+  axios.get("http://localhost:3000/products/brands")
+
+    .then(brandsPayload => {
+      let brands = brandsPayload.data
+      const brandsDOMEl = document.querySelector("#brands")
+
+      brands.forEach(function (brand) {
+        const newbrandFilterItem = document.createElement("li")
+        newbrandFilterItem.innerHTML = `<input type='checkbox'> ${brand}`
+        brandsDOMEl.appendChild(newbrandFilterItem)
+      })
+      document.querySelector("#buttonBrands").onclick = function () {
+        counter++;
+        if (counter % 2 === 0) {
+          brandsDOMEl.style.display = "block";
+        } else {
+          brandsDOMEl.style.display = "none";
+        }
+      };
+    })
+
+
+  axios.get("http://localhost:3000/products/names")
+    .then(namesPayload => {
+      let names = namesPayload.data
+      const namesDOMEl = document.querySelector("#names")
+
+      names.forEach(function (name) {
+        const newNameFilterItem = document.createElement("li")
+        newNameFilterItem.innerHTML = `<input type='checkbox'> ${name}`
+        namesDOMEl.appendChild(newNameFilterItem)
+      })
+      document.querySelector("#buttonNames").onclick = function () {
+        counter++;
+        if (counter % 2 === 0) {
+          namesDOMEl.style.display = "block";
+        } else {
+          namesDOMEl.style.display = "none";
+        }
+      };
+    })
+
+  axios.get("http://localhost:3000/products/categories")
+    .then(categoriesPayload => {
+      let categories = categoriesPayload.data
+      const categoriesDOMEl = document.querySelector("#categories")
+
+      categories.forEach(function (category) {
+        const newcategoryFilterItem = document.createElement("li")
+        newcategoryFilterItem.innerHTML = `<input type='checkbox'> ${category}`
+        categoriesDOMEl.appendChild(newcategoryFilterItem)
+      })
+      document.querySelector("#buttonCategories").onclick = function () {
+        counter++;
+        if (counter % 2 === 0) {
+          categoriesDOMEl.style.display = "block";
+        } else {
+          categoriesDOMEl.style.display = "none";
+        }
+      };
+    })
+
+  axios.get("http://localhost:3000/products/product_types")
+    .then(product_typesPayload => {
+      let product_types = product_typesPayload.data
+      const product_typesDOMEl = document.querySelector("#product_types")
+
+      product_types.forEach(function (product_type) {
+        const newproduct_typeFilterItem = document.createElement("li")
+        newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${product_type}`
+        product_typesDOMEl.appendChild(newproduct_typeFilterItem)
+      })
+
+      document.querySelector("#buttonProduct_types").onclick = function () {
+        counter++;
+        if (counter % 2 === 0) {
+          product_typesDOMEl.style.display = "block";
+        } else {
+          product_typesDOMEl.style.display = "none";
+        }
+      };
+    })
+
+  axios.get("http://localhost:3000/products/products_colors")
+    .then(products_colorsPayload => {
+      let products_colors = products_colorsPayload.data
+      const products_colorsDOMEl = document.querySelector("#colors")
+      console.log(products_colors)
+      products_colors.forEach(function (product_colors) {
+
+        product_colors.forEach(function (object_hex) {
+
+          const newproduct_typeFilterItem = document.createElement("li")
+          newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${object_hex.hex_value}`
+          products_colorsDOMEl.appendChild(newproduct_typeFilterItem)
+        })
+
+      })
+      document.querySelector("#buttonColors").onclick = function () {
+        counter++;
+        if (counter % 2 === 0) {
+          products_colorsDOMEl.style.display = "block";
+        } else {
+          products_colorsDOMEl.style.display = "none";
+        }
+      };
+    })
+
+  axios.get("http://localhost:3000/products/prices")
+    .then(pricesPayload => {
+      let prices = pricesPayload.data
+      const pricesDOMEl = document.querySelector("#prices")
+
+      prices.forEach(function (price) {
+        const newproduct_typeFilterItem = document.createElement("li")
+        newproduct_typeFilterItem.innerHTML = `<input type='checkbox'> ${price}`
+        pricesDOMEl.appendChild(newproduct_typeFilterItem)
+      })
+    })
+</script>

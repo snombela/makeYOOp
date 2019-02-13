@@ -3,7 +3,8 @@ grey: #7E7F82
 darkpintk: #D1B5AF
 pink: #F5E3E0
 lightgrey:#E4E3DF
-greyblue: #D1D2D4 */
+greyblue: #D1D2D4 
+rosa:#F19D94 */
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 body {
   background-color: #F6F6F6; }
@@ -12,6 +13,10 @@ body {
   background-color: white;
   border-radius: 20px;
   text-align: center; }
+  .box-container-1 h2 {
+    padding-top: 30px;
+    font-size: 2em;
+    color: #F19D94; }
 
 .box-container-2 {
   background-color: white;
@@ -19,15 +24,15 @@ body {
   .box-container-2 h4 {
     padding: 20px;
     font-size: 1.2em;
-    color: #D1B5AF; }
+    color: #F19D94; }
 
 .profile-img {
   width: 260px;
   height: 260px;
   border-radius: 50%;
   border: #E4E3DF solid 1px;
-  margin-top: 40px;
-  object-fit: fill; }
+  margin-top: 30px;
+  object-fit: cover; }
 
 .center-img {
   align-items: center; }
@@ -36,15 +41,15 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: space-evenly;
-  margin-top: 30px; }
+  padding: 30px 0; }
 
 .upload-btn-wrapper {
   position: relative;
   overflow: hidden; }
 
 .btn {
-  border: 2px solid #D1B5AF;
-  color: #D1B5AF;
+  border: 2px solid #F19D94;
+  color: #F19D94;
   background-color: white;
   width: 150px;
   padding: 8px 10px;
@@ -64,12 +69,21 @@ body {
 .favorite-img {
   width: 20px; }
 
+.product-page-container {
+  margin: 30px 30px 30px 0px;
+  padding: 0 50px; }
+
 .products-container {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
   justify-content: space-around;
-  flex-direction: row; }
+  align-content: flex-start;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 20px; }
 
 .item-container {
   display: flex;
@@ -85,23 +99,107 @@ body {
 .item-container img {
   width: 200px;
   height: 150px;
-  object-fit: fill; }
+  object-fit: cover; }
 
 .item-container .favorite-img {
   width: 20px;
   height: 20px; }
 
+nav {
+  margin: 10px; }
+
+.nav-link {
+  color: #F19D94; }
+  .nav-link:hover {
+    color: #7E7F82; }
+
+#form-container {
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 30px;
+  margin: 30px auto;
+  width: 420px; }
+
+#form-container h2 {
+  font-size: 3em;
+  color: #F19D94;
+  padding: 10px; }
+
+#form-container label {
+  color: #666;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #666;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center; }
+
+#form-container input,
+#form-container button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px; }
+
+#form-container button {
+  background: #F19D94;
+  border: 1px solid #F19D94;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s ease background;
+  width: 100%; }
+  #form-container button:hover {
+    background: #fff;
+    color: #F19D94;
+    transition: .3s ease background; }
+
+.carousel {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto; }
+
+.carousel img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover; }
+
+.index-container {
+  color: #F19D94;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 20px; }
+
+.index-container h1 {
+  padding: 30px 20px; }
+
+.index-container h4 {
+  padding: 10px 0px 30px 0px; }
+
 * {
   box-sizing: border-box; }
 
 body {
-  padding: 50px;
+  padding: 10px;
+  margin: 0;
   font-family: 'Poppins', sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #F19D94; }
   a:hover {
-    color: pink; }
+    color: #7E7F82; }
 
 .newProduct {
   display: flex;
