@@ -17,14 +17,42 @@ product_colorsssss
 <div id="products_colors"></div>
 
 pricesss
-<div id="prices"></div>
+<input type="text" id="myInput" onkeyup="searchPrice()" placeholder="Search by price..">
+<div id="price"></div>
 
 {{#each products}}
 <a href="/products/{{this.id}}">{{this.name}}</a>
 <br>
 {{/each}}
 
+
+
 <script>
+
+
+    function searchPrice() {
+
+        let price = document.getElementById("myInput").value
+
+        if (document.getElementById("myInput").value.length === 0) {
+            document.querySelector("#price").innerHTML = ""
+        } else {
+            axios.get(`http://localhost:3000/products/productsByPrice/${price}`)
+                .then(productsByPrice => {
+
+                    const brandsDOMEl = document.querySelector("#price")
+
+                    productsByPrice.data.forEach(function (product) {
+                        const newBrandFilterItem = document.createElement("li")
+                        newBrandFilterItem.innerHTML = `<input type='checkbox'> ${product.price}`
+                        brandsDOMEl.appendChild(newBrandFilterItem)
+                    })
+                })
+        }
+
+
+    }
+
     axios.get("http://localhost:3000/products/brands")
         .then(brandsPayload => {
             let brands = brandsPayload.data
@@ -60,6 +88,7 @@ pricesss
                 categoriesDOMEl.appendChild(newcategoryFilterItem)
             })
         })
+
     axios.get("http://localhost:3000/products/product_types")
         .then(product_typesPayload => {
             let product_types = product_typesPayload.data
@@ -99,4 +128,6 @@ pricesss
                 pricesDOMEl.appendChild(newproduct_typeFilterItem)
             })
         })
+
+
 </script>
