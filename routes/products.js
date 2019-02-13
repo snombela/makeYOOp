@@ -68,7 +68,6 @@ router.post("/new", uploadCloud.single('photo'), (req, res, next) => {
   console.log(newProduct)
     newProduct.save()
     .then((product) => {
-      
       res.redirect("/products")
     })
     .catch((error) => {

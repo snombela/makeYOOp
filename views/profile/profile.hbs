@@ -7,8 +7,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 red">
-      <img src="/images/user.png" alt="user">
-      <h2>{{this.name}}</h2>
+
+      <form action="/profile" method="post" enctype="multipart/form-data">
+      <img src="{{user.imgPath}}" alt="user image">
+      <input type="file" name="photo">
+      <button type="submit">Enviar</button>
+      </form>
+
+      <h2>{{user.name}}</h2>
     </div>
 
     <div class="col-md-8 blue">
