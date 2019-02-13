@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="box-container-1">
+        <h2>¡Hola {{user.name}}!</h2>
         <form action="/profile" method="post" enctype="multipart/form-data">
           <img src="{{user.imgPath}}" alt="user image" class="profile-img">
           <div class="buttons">
@@ -12,7 +13,6 @@
             <button class="btn" type="submit">Enviar</button>
           </div>
         </form>
-        <h2>{{user.name}}</h2>
 
       </div>
     </div>
