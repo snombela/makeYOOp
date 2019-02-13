@@ -1,41 +1,25 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/User");
-const Brand = require("../models/Brand");
 const bcrypt = require("bcrypt");
 
-passport.use(
-  "local",
-  new LocalStrategy(
-    {
-      usernameField: "email",
-      passwordField: "password"
-    },
-    function(email, password, done) {
-      console.log("dentro");
+passport.use(new LocalStrategy({
+  usernameField: "email",
+  passwordField: "password"
+}, (email, password, done) => {
+  User.findOne({ email })
+    .then(foundUser => {
+      if (!foundUser) {
+        done(null, false, { message: "Incorrect user username" });
+        return
+      }
 
-      User.findOne({ email })
-        .then(user => {
-          if (!user) {
-            return Brand.findOne({ email });
-          } else {
-            if (!bcrypt.compareSync(password, user.password)) {
-              done(null, false, { message: "Incorrect user password" });
-              return;
-            } else {
-              done(null, user);
-            }
-          }
-        })
-        .then(brand => {
-          if (!brand) {
-            done(null, false, { message: "Incorrect brand password" });
-            return;
-          } else {
-            done(null, brand);
-          }
-        })
-        .catch(err => done(err));
-    }
-  )
-);
+      if (!bcrypt.compareSync(password, foundUser.password)) {
+        done(null, false, { message: "Incorrect user password" });
+        return;
+      }
+
+      done(null, foundUser);
+    }).catch(err => done(err));
+}
+));
