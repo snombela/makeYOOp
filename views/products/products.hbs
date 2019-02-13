@@ -4,9 +4,9 @@
 <a href="/products/{{this.id}}">{{this.name}}</a> 
 {{#unless ../user.isBrand}}
  {{#if this.isFavorite}}
-  <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png"></a>
+  <a href="/products/favorite/remove/{{this.id}}"><img src="/images/estrella.png" class="favorite-img"></a>
   {{else}}
-  <a href="/products/favorite/add/{{this.id}}">add favorite</a>
+  <a href="/products/favorite/add/{{this.id}}"><img src="/images/star-01.png" class="favorite-img"></a>
   {{/if}}
 {{/unless}}
 <br>   

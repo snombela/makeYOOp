@@ -7,19 +7,23 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
-      <div class="red">
+      <div class="box-container-1">
         <form action="/profile" method="post" enctype="multipart/form-data">
-        <img src="{{user.imgPath}}" alt="user image">
+        <img src="{{user.imgPath}}" alt="user image" class="profile-img">
+        <div class="buttons">
+        <div class="upload-btn-wrapper">
+        <button class="btn">Upload a file</button>
         <input type="file" name="photo">
-        <button type="submit">Enviar</button>
+        </div>
+        <button class="btn" type="submit">Enviar</button>
+        </div>
         </form>
-
         <h2>{{user.name}}</h2>
 
       </div>
     </div>
 
-    <div class="col-md-7 blue">
+    <div class="col-md-8 box-container-2">
       <div class="blue">
       {{#each products}}
       <div class="container-fluid">

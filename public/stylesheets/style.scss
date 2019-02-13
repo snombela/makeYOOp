@@ -1,6 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+/* color
+grey: #7E7F82
+darkpintk: #D1B5AF
+pink: #F5E3E0
+lightgrey:#E4E3DF
+greyblue: #D1D2D4 */
 
-@import 'test.scss';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import 'profile.scss';
+@import 'products.scss';
 
 *{
   box-sizing: border-box;
@@ -19,16 +26,7 @@ a {
   
 }
 
-.red {
-  background-color: red;
-  border-radius: 20px;
-}
 
-.blue {
-  background-color: blue;
-  border-radius: 20px;
- 
-}
 
 .newProduct {
   display: flex;
@@ -48,11 +46,6 @@ a {
   border-radius: 10px;
 }
 
-.profile-image{
-  width: 70%;
-  border-radius: 50%;
-
-}
 
 .prueba{
   display: flex;

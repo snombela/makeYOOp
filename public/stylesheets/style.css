@@ -1,4 +1,64 @@
+/* color
+grey: #7E7F82
+darkpintk: #D1B5AF
+pink: #F5E3E0
+lightgrey:#E4E3DF
+greyblue: #D1D2D4 */
 @import url("https://fonts.googleapis.com/css?family=Poppins");
+body {
+  background-color: #F6F6F6; }
+
+.box-container-1 {
+  background-color: white;
+  border-radius: 20px;
+  text-align: center; }
+
+.box-container-2 {
+  background-color: white;
+  border-radius: 20px; }
+
+.profile-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: #E4E3DF solid 1px;
+  margin-top: 40px;
+  object-fit: fill; }
+
+.center-img {
+  align-items: center; }
+
+.buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  margin-top: 30px; }
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden; }
+
+.btn {
+  border: 2px solid #D1B5AF;
+  color: #D1B5AF;
+  background-color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold; }
+  .btn:hover {
+    color: #D1B5AF; }
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0; }
+
+.favorite-img {
+  width: 20px; }
+
 * {
   box-sizing: border-box; }
 
@@ -10,14 +70,6 @@ a {
   color: #00B7FF; }
   a:hover {
     color: pink; }
-
-.red {
-  background-color: red;
-  border-radius: 20px; }
-
-.blue {
-  background-color: blue;
-  border-radius: 20px; }
 
 .newProduct {
   display: flex;
@@ -33,10 +85,6 @@ a {
   flex-flow: row;
   background-color: grey;
   border-radius: 10px; }
-
-.profile-image {
-  width: 70%;
-  border-radius: 50%; }
 
 .prueba {
   display: flex;
