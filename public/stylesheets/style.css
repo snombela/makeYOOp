@@ -138,6 +138,12 @@ body {
   width: 20px;
   height: 20px; }
 
+#brand {
+  width: 100%; }
+
+#categories {
+  width: 100%; }
+
 .nav-link {
   color: #F19D94 !important;
   margin: 10px !important; }

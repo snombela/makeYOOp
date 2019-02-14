@@ -4,8 +4,8 @@
     <div class="filter-container col-3 products-container2">
       <button id="buttonBrands" class="filter btn-filters">BRANDS</button>
       <ul id="brands"></ul>
-      <button id="buttoncatgories" class="filter btn-filters">categories</button>
-      <ul id="catgories"></ul>
+      <button id="buttoncategories" class="filter btn-filters">categories</button>
+      <ul id="categories"></ul>
     </div>
     
     <div class="filter-container col-9 products-container">
@@ -32,9 +32,9 @@
 
 <script>
   function myFunction() {
-  
     var x = document.querySelector("#brands").checked;
   }
+
   var counter = 0;
 
   axios
@@ -93,17 +93,17 @@
    }  
  }
 
- function myFunction() {
-    
+ function myFunction2() {
     var x = documente.querySelector("#categories").checked;
   }
+
   var counter = 0;
 
   axios
     .get("{{host}}/products/categories")
     .then(categoriesPayload => {
       let categories = categoriesPayload.data;
-      const categoriesDOMEl = document.querySelector("#catgories");
+      const categoriesDOMEl = document.querySelector("#categories");
        
       categories.forEach(function (category) {
         const newcategoryFilterItem = document.createElement("li");
@@ -131,6 +131,7 @@
       actualInput.onchange=getCheck;
     })  
   }
+
 function showProducts2(products){
    document.querySelector('.products-container').innerHTML=''
           products.data.forEach(prod=>{
