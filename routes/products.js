@@ -58,7 +58,7 @@ router.get("/brands", (req, res, next) => {
 
 router.post("/categoriesFiltered", (req, res, next) => {
   var allcategoriesArr = req.body.categoryArr  
-  Product.find({'category':{$in:[allcategoriesArr]} })
+  Product.find({'category':{$in:allcategoriesArr} })
     .then(products => {
       res.json(products);
       // console.log("productsXXXX")
@@ -73,7 +73,7 @@ router.post("/categoriesFiltered", (req, res, next) => {
 
 router.post("/brandsFiltered", (req, res, next) => {
   var allBrandsArr = req.body.brandArr  
-  Product.find({'brand':{$in:[allBrandsArr]} })
+  Product.find({'brand':{$in:allBrandsArr} })
     .then(products => {
       res.json(products);
       // console.log("productsXXXX")

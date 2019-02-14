@@ -10,9 +10,11 @@
 
 <script>
 
+  
+
   function myFunction() {
   
-    var x = documente.querySelector("#brands").checked;
+    var x = document.querySelector("#brands").checked;
   }
   var counter = 0;
 
@@ -35,19 +37,9 @@
         }
       };
     });
- 
- const brandArr = []
- function getCheck(e){
-  
-   if(e.target.checked){
-    
-     brandFilterAplied = e.target.name; 
-     brandArr.push(brandFilterAplied)
-     
-     axios.post("http://localhost:3000/products/brandsFiltered", {brandArr})
-        .then((products)=>{
-        
-          document.querySelector('.products-container').innerHTML=''
+
+  function showProducts(products) {
+    document.querySelector('.products-container').innerHTML=''
           products.data.forEach(prod=>{
             document.querySelector('.products-container').innerHTML+=`
               <div class='item-container'>
@@ -55,11 +47,30 @@
                 <h5><a href="/products/${prod._id}}">${prod.name}</a></h5>
               </div>`;
           })
+  }
+ 
+ const brandArr = []
+ function getCheck(e){
+   if(e.target.checked){
+    
+     brandFilterAplied = e.target.name; 
+     brandArr.push(brandFilterAplied)
+     
+     axios.post("http://localhost:3000/products/brandsFiltered", {brandArr})
+        .then((products)=>{
+          showProducts(products)
+          
         })
         .catch(()=>console.log())
    } else {
      brandFilterAplied = e.target.name; 
      brandArr.splice(brandArr.indexOf(brandFilterAplied), 1)
+     axios.post("http://localhost:3000/products/brandsFiltered", {brandArr})
+        .then((products)=>{
+        
+          showProducts(products)
+        })
+        .catch(()=>console.log())
    }  
  }
 
@@ -98,10 +109,19 @@
     })  
      var b = document.getElementsByClassName("filterBrand")
     Array.from(b).forEach(actualInput=>{
-      console.log('o')
       actualInput.onchange=getCheck;
     })  
   }
+function showProducts2(products){
+   document.querySelector('.products-container').innerHTML=''
+          products.data.forEach(prod=>{
+            document.querySelector('.products-container').innerHTML+=`
+              <div class='item-container'>
+                <img src='${prod.image_link}'>
+                <h5><a href="/products/${prod._id}}">${prod.name}</a></h5>
+              </div>`;
+          })
+}
 
  const categoryArr = []
  function get2Check(e){
@@ -111,15 +131,8 @@
      categoryArr.push(categoryFilterAplied)
      axios.post("http://localhost:3000/products/categoriesFiltered", {categoryArr})
         .then((products)=>{
-          
-          document.querySelector('.products-container').innerHTML=''
-          products.data.forEach(prod=>{
-            document.querySelector('.products-container').innerHTML+=`
-              <div class='item-container'>
-                <img src='${prod.image_link}'>
-                <h5><a href="/products/${prod._id}}">${prod.name}</a></h5>
-              </div>`;
-          })
+          showProducts2(products)
+         
         })
         .catch(()=>console.log())
    } else {
@@ -130,8 +143,7 @@
 </script>
 
 
-        product_colors.forEach(function (object_hex) {
-
+        
 <div class="products-container">
   {{#each products}}
   <div class="item-container">
