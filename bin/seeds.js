@@ -2,13 +2,14 @@
 
 // To execute this seed, run from the root of the project
 // $ node bin/seeds.js
+require('dotenv').config();
 
 const mongoose = require("mongoose");
 const Product = require("../models/Product");
 const axios = require("axios");
 
 mongoose
-  .connect("mongodb://localhost/makeyoop", { useNewUrlParser: true })
+  .connect(process.env.DBURL, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
