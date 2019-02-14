@@ -1,0 +1,24 @@
+.box-container-product {
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px;
+
+  img {
+    width: 200px;
+  }
+
+  h1 {
+    margin: 20px;
+    color: $primary-color;
+  }
+
+}
+
+.tag {
+  display: inline-block;
+}
+
+.text-Style {
+  text-align: justify;
+  padding-right: 50px;
+}

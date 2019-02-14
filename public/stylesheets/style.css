@@ -263,6 +263,23 @@ nav {
   top: 0;
   opacity: 0; }
 
+.box-container-product {
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px; }
+  .box-container-product img {
+    width: 200px; }
+  .box-container-product h1 {
+    margin: 20px;
+    color: #F19D94; }
+
+.tag {
+  display: inline-block; }
+
+.text-Style {
+  text-align: justify;
+  padding-right: 50px; }
+
 * {
   box-sizing: border-box; }
 
