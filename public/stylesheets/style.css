@@ -85,6 +85,37 @@ body {
   background-color: white;
   border-radius: 20px; }
 
+.btn-filters {
+  margin: 20px 0;
+  background: #F19D94;
+  border: 1px solid #F19D94;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 40%; }
+  .btn-filters:hover {
+    background: #fff;
+    color: #F19D94; }
+
+.products-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 20px; }
+  .products-container2 li {
+    list-style: none; }
+
 .item-container {
   display: flex;
   width: 200px;
