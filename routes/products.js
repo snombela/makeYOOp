@@ -278,6 +278,17 @@ router.get("/productsByPrice/:price", (req, res, next) => {
 })
 });
 
+router.get("/remove/:id", (req, res, next) => {
+  const id = req.params.id;
+  Product.findByIdAndRemove(id)
+    .then(product => {
+      res.redirect("/");
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+});
+
 router.get("/:id", (req, res, next) => {
   const id = req.params.id;
   Product.findById(id)
