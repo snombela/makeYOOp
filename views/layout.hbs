@@ -14,40 +14,47 @@
 </head>
 <body>
 
-  <nav class="menu-fixed">
-  <ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" href="/">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/products">Products</a>
-  </li>
-  {{#unless user}}
-  <li class="nav-item">
-    <a class="nav-link" href="/login">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/signup">SignUp</a>
-  </li>
-  {{else}}
-  <li class="nav-item">
-    <a class="nav-link" href="/profile">Profile</a>
-  </li>
-    {{#if user.isBrand}}
-    <li class="nav-item">
-      <a class="nav-link" href="/products/new">Add new product</a>
-    </li>
-    {{/if}}
-  <li class="nav-item">
-    <a class="nav-link" href="/logout">Logout</a>
-  </li>
-  {{/unless}}
+<nav class="menu-fixed navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/"><img src="images/makeYOOP-01.png" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="nav collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products">Products</a>
+      </li>
+      {{#unless user}}
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">SignUp</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+        {{#if user.isBrand}}
+        <li class="nav-item">
+          <a class="nav-link" href="/products/new">Add new product</a>
+        </li>
+        {{/if}}
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      {{/unless}}
 
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
-  </li>
-</ul>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
 
 
   {{{body}}}

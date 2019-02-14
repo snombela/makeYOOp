@@ -4,7 +4,7 @@ const Product = require('../models/Product')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  Product.find({}).limit(12)
+  Product.find({}).sort({created_at:-1}).limit(12)
     .then(products => {
       res.render("index", { "products": products });
     })

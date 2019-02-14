@@ -1,8 +1,6 @@
-nav {
-  margin: 10px;
-}
 .nav-link {
-  color: $primary-color;
+  color: $primary-color !important;
+  margin: 10px !important;
   &:hover{
     color: #7E7F82
   }

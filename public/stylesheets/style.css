@@ -138,11 +138,9 @@ body {
   width: 20px;
   height: 20px; }
 
-nav {
-  margin: 10px; }
-
 .nav-link {
-  color: #F19D94; }
+  color: #F19D94 !important;
+  margin: 10px !important; }
   .nav-link:hover {
     color: #7E7F82; }
 
