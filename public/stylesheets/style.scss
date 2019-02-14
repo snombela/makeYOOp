@@ -9,11 +9,14 @@ rosa:#F19D94 */
 $primary-color: #F19D94;
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-@import 'profile.scss';
-@import 'products.scss';
-@import 'nav.scss';
-@import 'auth.scss';
-@import 'home.scss';
+@import '_profile.scss';
+@import '_products.scss';
+@import '_nav.scss';
+@import '_auth.scss';
+@import '_home.scss';
+@import '_form.scss';
+@import '_productDetail.scss';
+
 *{
   box-sizing: border-box;
 }
@@ -33,26 +36,17 @@ a {
 }
 
 
-.newProduct {
-  display: flex;
-  flex-flow: column;
-  width: 300px;
-}
-
-.newProduct button {
-  margin-top: 10px;
-  background-color: lightblue;
-}
-
-.profile-container {
-  display: flex;
-  flex-flow: row;
-  background-color: grey;
-  border-radius: 10px;
-}
 
 
-.prueba{
-  display: flex;
-  flex-flow: row;
-}
+// .profile-container {
+//   display: flex;
+//   flex-flow: row;
+//   background-color: grey;
+//   border-radius: 10px;
+// }
+
+
+// .prueba{
+//   display: flex;
+//   flex-flow: row;
+// }

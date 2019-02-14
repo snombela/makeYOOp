@@ -1,0 +1,42 @@
+.box-container-product {
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px;
+  
+
+  img {
+    width: 200px;
+   
+  }
+
+  h1 {
+    padding: 20px 0 30px 20px;
+   
+    color: $primary-color;
+  }
+
+  h5 {
+    color: rgb(240, 201, 194);
+  }
+
+}
+
+.box {
+ text-align: center;
+ 
+}
+
+
+
+p {
+  color:rgb(110, 111, 112);
+}
+
+.text-Style {
+  text-align: justify;
+  padding-right: 50px;
+}
+
+.col-md-4{
+  padding: 10px;
+}
