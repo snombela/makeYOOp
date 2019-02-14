@@ -37,10 +37,10 @@ router.get("/", (req, res, next) => {
 // });
 
 router.get("/brands", (req, res, next) => {
+  req.query.brand
   Product.find({})
     .then(products => {
       var brands = []
-      
       products.forEach(function(product) {
         return brands.push(product.brand)
       });
@@ -55,6 +55,36 @@ router.get("/brands", (req, res, next) => {
       console.log("The error has occurred", err);
     });
 });
+
+router.post("/categoriesFiltered", (req, res, next) => {
+  var allcategoriesArr = req.body.categoryArr  
+  Product.find({'category':{$in:[allcategoriesArr]} })
+    .then(products => {
+      res.json(products);
+      // console.log("productsXXXX")
+      // console.log(products)
+      //res.render("products/products", {"products": products, "user": req.user});
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+
+})
+
+router.post("/brandsFiltered", (req, res, next) => {
+  var allBrandsArr = req.body.brandArr  
+  Product.find({'brand':{$in:[allBrandsArr]} })
+    .then(products => {
+      res.json(products);
+      // console.log("productsXXXX")
+      // console.log(products)
+      //res.render("products/products", {"products": products, "user": req.user});
+    })
+    .catch(err => {
+      console.log("The error has occurred", err);
+    });
+
+})
 
 
 router.get("/names", (req, res, next) => {
@@ -82,15 +112,12 @@ router.get("/categories", (req, res, next) => {
   Product.find({})
     .then(products => {
       var categories = []
-      
       products.forEach(function(product) {
         return categories.push(product.category)
       });
-
       function onlyUnique(value, index, self) {
         return self.indexOf(value) === index && value !== null;
       }
-
       res.json(categories.filter(onlyUnique));
     })
     .catch(err => {
