@@ -1,5 +1,39 @@
-<h1>Product detail</h1>
+<div class="box-container-product">
+<h1>{{product.name}}</h1>
 
-<p>{{product.name}}</p>
-<img src="{{product.image_link}}"></p>
-<p>{{product.description}}</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box">
+      <img src="{{product.image_link}}"></p>
+      <p>Category: {{product.category}}</p>
+      <p>Price: {{product.price}}€</p>
+      </div>
+    </div>
+    <div class="col-md-8 text-Style">
+      <h5>Description</h5>
+      <p>{{product.description}}</p>
+      
+      <div class="tag">
+      <h5>Tag:</h5>
+      <p>{{product.tag_list}}</p>
+      </div>
+  
+    </div>
+  </div>
+</div>
+</div>
+
+
+{{!-- brand: String,
+name: String,
+price: Number,
+price_sign: String,
+image_link: String,
+product_link: String,
+description: String,
+category: String,
+product_type: String,
+tag_list: [String],
+product_colors: Array,
+imgName: String, --}}

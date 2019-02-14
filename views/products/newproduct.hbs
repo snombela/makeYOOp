@@ -1,36 +1,61 @@
-<form action="/products/new" method="post"  class="newProduct" enctype="multipart/form-data">
 
+<form action="/products/new" method="post"  class="newProduct" enctype="multipart/form-data" id="form-container2">
+
+ <div class="form-row">
+  <div class="form-group col-md-9">
   <label for="">Name:</label>
-  <input required type="text" name="name" value="peach">
+  <input required type="text" name="name" value="peach" class="form-control">
+</div>
 
+<div class="form-group col-md-3">
   <label for="">Price:</label>
-  <input required type="number" name="price" value="5">
+  <input required type="number" name="price" value="5" class="form-control">
+</div>
+</div>
 
-  <label for="photo">Image:</label>
-  <input required type="file" name="photo" value="">
-
+<div class="form-group">
   <label for="">Description:</label>
-  <input required type="text" name="description" value="
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate earum odio fugiat illo dolor quod! Voluptatem commodi dolorum aliquam perspiciatis veniam nihil porro illo accusantium nobis est voluptate, consectetur aspernatur!">
+  <textarea required type="text" name="description" value="
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+  Voluptate earum odio fugiat illo dolor quod! Voluptatem commodi dolorum 
+  aliquam perspiciatis veniam nihil porro illo accusantium nobis est voluptate, 
+  consectetur aspernatur!" class="form-control textarea"></textarea>
+</div>
 
+ <div class="form-row">
+  <div class="form-group col-md-4">
   <label for="">Category:</label>
-  <input required type="text" name="category" value="blush">
+  <input required type="text" name="category" value="blush" class="form-control">
+</div>
 
+<div class="form-group col-md-4">
   <label for="">Product type:</label>
-  <input required type="text" name="product_type" value="blush">
+  <input required type="text" name="product_type" value="blush" class="form-control">
+</div>
 
+<div class="form-group col-md-4">
   <label for="">Tags:</label>
-  <input required type="text" name="tag_list" value="vegan">
+  <input required type="text" name="tag_list" value="vegan" class="form-control">
+</div>
+</div>
 
+<div class="form-group">
+  <div class="upload-btn-wrapper">
+  <label for="photo"></label>
+  <button class="btn2">Upload image</button>
+  <input required type="file" name="photo" value="" class="form-control-file" >
+  </div>
+</div>
+
+<!-- 
   <label for="">Product color:</label>
   <select>
     {{#each colors.arrayProp}}
       <option value='elem_1'>{{this.name}} {{this.hex}}</option>
-    {{!-- <input type="text" name="product_colors" value="naranja"> --}}
+    <input type="text" name="product_colors" value="naranja">
     {{/each}}
   </select>
-  
- 
-
-  <button type="submit">ADD</button>
+   -->
+  <button type="submit" class="btn3">ADD</button>
 </form>
+

@@ -6,6 +6,11 @@ body{
   background-color: white;
   border-radius: 20px;
   text-align: center;
+  h2 {
+    padding-top: 30px;
+    font-size: 2em;
+    color: $primary-color;
+  }
 }
 
 .box-container-2 {
@@ -14,7 +19,7 @@ body{
   h4{
     padding: 20px;
     font-size: 1.2em;
-    color: #D1B5AF;
+    color: $primary-color;
   }
 }
 
@@ -23,8 +28,8 @@ body{
   height: 260px;
   border-radius: 50%;
   border: #E4E3DF solid 1px;
-  margin-top: 40px;
-  object-fit: fill;
+  margin-top: 30px;
+  object-fit: cover;
 }
 
 .center-img {
@@ -35,7 +40,7 @@ body{
   display: flex;
   flex-flow: row;
   justify-content: space-evenly;
-  margin-top: 30px;
+  padding: 30px 0;
   
 }
 
@@ -45,8 +50,8 @@ body{
 }
 
 .btn {
-  border: 2px solid #D1B5AF;
-  color: #D1B5AF;
+  border: 2px solid $primary-color;
+  color: $primary-color;
   background-color: white;
   width: 150px;
   padding: 8px 10px;
@@ -54,7 +59,7 @@ body{
   font-size: 15px;
   font-weight: bold;
   &:hover {
-    color: #D1B5AF;
+    color:#F19D94;
   }
 }
 

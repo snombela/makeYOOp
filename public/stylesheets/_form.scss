@@ -1,0 +1,88 @@
+
+#form-container2 {
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 30px;
+  margin: 30px auto;
+  width: 550px;
+}
+
+#form-container2 h2{
+    font-size: 3em;
+    color: $primary-color;
+    padding: 10px;
+  
+}
+
+#form-container2 label {
+  color: #7E7F82;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #7E7F82;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#form-container2 input,
+#form-container2 .btn3 {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#form-container2 .btn3 {
+  margin-top: 10px;
+  background: $primary-color;
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s ease background;
+  width: 100%;
+  &:hover {
+    background: #fff;
+  color: $primary-color;
+  transition: .3s ease background;
+  }
+}
+
+
+
+.upload-btn-wrapper2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn2 {
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  background-color: white;
+  width: 130px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+ 
+}
+
+.upload-btn-wrapper2 input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

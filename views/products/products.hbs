@@ -1,4 +1,6 @@
-<h1>Products</h1>
+<div class="container-fluid product-page-container">
+  <div class="row">
+  <div class="filter-container col-3">
 
 <button id="buttonBrands" class="filter">BRANDS</button>
 <ul id="brands"></ul>
@@ -128,6 +130,7 @@
 </script>
 
 
+        product_colors.forEach(function (object_hex) {
 
 <div class="products-container">
   {{#each products}}

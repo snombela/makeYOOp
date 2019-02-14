@@ -3,51 +3,50 @@ grey: #7E7F82
 darkpintk: #D1B5AF
 pink: #F5E3E0
 lightgrey:#E4E3DF
-greyblue: #D1D2D4 */
+greyblue: #D1D2D4 
+rosa:#F19D94 */
+
+$primary-color: #F19D94;
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-@import 'profile.scss';
-@import 'products.scss';
+@import '_profile.scss';
+@import '_products.scss';
+@import '_nav.scss';
+@import '_auth.scss';
+@import '_home.scss';
+@import '_form.scss';
+@import '_productDetail.scss';
 
 *{
   box-sizing: border-box;
 }
 
 body {
-  padding: 50px;
+  padding: 10px;
+  margin: 0;
   font-family: 'Poppins', sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: $primary-color;
   &:hover{
-    color: pink;
+    color: #7E7F82;
   }
   
 }
 
 
 
-.newProduct {
-  display: flex;
-  flex-flow: column;
-  width: 300px;
-}
 
-.newProduct button {
-  margin-top: 10px;
-  background-color: lightblue;
-}
-
-.profile-container {
-  display: flex;
-  flex-flow: row;
-  background-color: grey;
-  border-radius: 10px;
-}
+// .profile-container {
+//   display: flex;
+//   flex-flow: row;
+//   background-color: grey;
+//   border-radius: 10px;
+// }
 
 
-.prueba{
-  display: flex;
-  flex-flow: row;
-}
+// .prueba{
+//   display: flex;
+//   flex-flow: row;
+// }
