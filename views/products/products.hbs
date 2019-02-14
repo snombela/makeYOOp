@@ -19,7 +19,7 @@
   var counter = 0;
 
   axios
-    .get("http://localhost:3000/products/brands")
+    .get("{{host}}/products/brands")
     .then(brandsPayload => {
       let brands = brandsPayload.data;
       const brandsDOMEl = document.querySelector("#brands");
@@ -56,7 +56,7 @@
      brandFilterAplied = e.target.name; 
      brandArr.push(brandFilterAplied)
      
-     axios.post("http://localhost:3000/products/brandsFiltered", {brandArr})
+     axios.post("{{host}}/products/brandsFiltered", {brandArr})
         .then((products)=>{
           showProducts(products)
           
@@ -65,7 +65,7 @@
    } else {
      brandFilterAplied = e.target.name; 
      brandArr.splice(brandArr.indexOf(brandFilterAplied), 1)
-     axios.post("http://localhost:3000/products/brandsFiltered", {brandArr})
+     axios.post("{{host}}/products/brandsFiltered", {brandArr})
         .then((products)=>{
         
           showProducts(products)
@@ -81,7 +81,7 @@
   var counter = 0;
 
   axios
-    .get("http://localhost:3000/products/categories")
+    .get("{{host}}/products/categories")
     .then(categoriesPayload => {
       let categories = categoriesPayload.data;
       const categoriesDOMEl = document.querySelector("#catgories");
@@ -129,7 +129,7 @@ function showProducts2(products){
    if(e.target.checked){
      categoryFilterAplied = e.target.name; 
      categoryArr.push(categoryFilterAplied)
-     axios.post("http://localhost:3000/products/categoriesFiltered", {categoryArr})
+     axios.post("{{host}}/products/categoriesFiltered", {categoryArr})
         .then((products)=>{
           showProducts2(products)
          

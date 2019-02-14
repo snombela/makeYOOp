@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const striptags = require('striptags');
@@ -17,7 +18,7 @@ router.get("/", (req, res, next) => {
           return product;
         })
       }
-      res.render("products/products", {"products": products});
+      res.render("products/products", {"products": products, "host": process.env.HOST});
     })
     .catch(err => {
       console.log("The error has occurred", err);
